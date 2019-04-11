@@ -41,6 +41,7 @@ namespace FlightSimulator.Views.Windows
         {
             mainwindow win = (mainwindow)Application.Current.MainWindow;
             win.Show();
+            vm.ReloadSettings();
             this.Close();
         }
     }

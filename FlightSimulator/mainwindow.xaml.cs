@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using FlightSimulator.Views.Windows;
 
 namespace FlightSimulator.Views
 {
@@ -27,6 +28,19 @@ namespace FlightSimulator.Views
         private void Joystick_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnConnect_Click(object sender, RoutedEventArgs e)
+        {
+            
+            //connect and do something
+
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            Settings settingWin = new Settings();
+            settingWin.ShowDialog();
         }
     }
 }
