@@ -9,6 +9,7 @@ namespace FlightSimulator.ViewModels
 {
     public class FlightBoardViewModel : BaseNotify
     {
+        //public FlightBoardViewModel()
 
         public double Lon
         {

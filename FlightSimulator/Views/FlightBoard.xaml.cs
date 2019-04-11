@@ -21,7 +21,7 @@ using Microsoft.Research.DynamicDataDisplay.DataSources;
 namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for MazeBoard.xaml
+    /// Interaction logic for FlightBoard.xaml
     /// </summary>
     public partial class FlightBoard : UserControl
     {
@@ -30,8 +30,8 @@ namespace FlightSimulator.Views
         public FlightBoard()
         {
             InitializeComponent();
-            vm = new FlightBoardViewModel(FlightManagerModel.Instance);
-            this.DataContext = vm;
+            vm = new FlightBoardViewModel();//FlightManagerModel.Instance);
+            //this.DataContext = vm;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
