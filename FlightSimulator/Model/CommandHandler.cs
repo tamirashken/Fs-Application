@@ -25,6 +25,18 @@ namespace FlightSimulator.Model
         public void Execute(object parameter)
         {
             _action();
+        }     
+
+        private ICommand _clearCommand;
+        public ICommand ConncetCommand
+        {
+            get
+            {
+                return _clearCommand ?? (_clearCommand = new CommandHandler(() =>
+                {
+                    //textbox is clearing itself somehow
+                }));
+            }
         }
     }
 }

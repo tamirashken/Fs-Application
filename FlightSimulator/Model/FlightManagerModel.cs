@@ -10,6 +10,7 @@ namespace FlightSimulator.Model
     public class FlightManagerModel
     {
         #region Singleton
+        private FlightManagerModel() { }
         private static FlightManagerModel m_Instance = null;
         public static FlightManagerModel Instance
         {
