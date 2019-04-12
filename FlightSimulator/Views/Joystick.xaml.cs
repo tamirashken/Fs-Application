@@ -176,7 +176,7 @@ namespace FlightSimulator.Views
         }
 
         //public bool AcceptReturn { get; set; }
-        public bool IsEmpty
+        /*public bool IsEmpty
         {
             get
             {
@@ -197,7 +197,7 @@ namespace FlightSimulator.Views
                     value = false;
                 }
             }
-        }
+        }*/
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
@@ -210,7 +210,7 @@ namespace FlightSimulator.Views
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             this.autoPilotTextBox.Clear();
-            this.autoPilotTextBox.Background = Brushes.White;
+            //this.autoPilotTextBox.Background = Brushes.White;
         }
 
     }

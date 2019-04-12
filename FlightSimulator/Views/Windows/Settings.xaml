@@ -27,6 +27,12 @@
                 <Setter Property="Padding" Value="3"/>
                 <Setter Property="Margin" Value="3"/>
             </Style>
+            <LinearGradientBrush x:Key="lightBlueBtnBG">
+                <GradientStop Offset="0" Color="LightCyan" />
+                <GradientStop Offset="0.5" Color="White" />
+                <GradientStop Offset="0.6" Color="White" />
+                <GradientStop Offset="1" Color="LightCyan" />
+            </LinearGradientBrush>
         </Grid.Resources>
         <TextBlock FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">Flight Server IP:</TextBlock>
         <TextBox x:Name="FlightServerIP" Grid.Column="1" Text="{Binding FlightServerIP}" Height="30" VerticalAlignment="Center"></TextBox>
@@ -38,26 +44,11 @@
         <TextBox x:Name="FlightCommandPort" Grid.Row="2" Grid.Column="1" Text="{Binding FlightCommandPort}"  Height="30" VerticalAlignment="Center" />
 
         <Button x:Name="btnOk" Click="btnOk_Click" Grid.Row="4" HorizontalAlignment="Center"  VerticalAlignment="Center"
-    Padding="5"  Width="80" FontWeight="Bold">OK
-            <Button.Background>
-                <LinearGradientBrush>
-                    <GradientStop Offset="0" Color="LightCyan" />
-                    <GradientStop Offset="0.5" Color="White" />
-                    <GradientStop Offset="0.6" Color="White" />
-                    <GradientStop Offset="1" Color="LightCyan" />
-                </LinearGradientBrush>
-            </Button.Background>
+    Padding="5"  Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">OK  
         </Button>
+        
         <Button x:Name="btnCancel" Grid.Row="4" HorizontalAlignment="center" VerticalAlignment="Center"
-    Padding="5" Click="btnCancel_Click" Grid.Column="1" Width="90" FontWeight="Bold">Cancel
-            <Button.Background>
-                <LinearGradientBrush>
-                    <GradientStop Offset="0" Color="LightCyan" />
-                    <GradientStop Offset="0.5" Color="White" />
-                    <GradientStop Offset="0.6" Color="White" />
-                    <GradientStop Offset="1" Color="LightCyan" />
-                </LinearGradientBrush>
-            </Button.Background>
+    Padding="5" Click="btnCancel_Click" Grid.Column="1" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">Cancel   
         </Button>
     </Grid>
 </Window>

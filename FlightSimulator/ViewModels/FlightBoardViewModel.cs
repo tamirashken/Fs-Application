@@ -4,12 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlightSimulator.Model;
 
 namespace FlightSimulator.ViewModels
 {
     public class FlightBoardViewModel : BaseNotify
     {
-        //public FlightBoardViewModel()
+        private FlightManagerModel flightManagerModel;
+
+        public FlightBoardViewModel(FlightManagerModel fmd)
+        {
+            this.flightManagerModel = fmd;
+        }
+
 
         public double Lon
         {

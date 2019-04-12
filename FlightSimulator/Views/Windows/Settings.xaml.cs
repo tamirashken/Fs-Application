@@ -29,6 +29,13 @@ namespace FlightSimulator.Views.Windows
             vm = new SettingsWindowViewModel(new ApplicationSettingsModel());
             this.DataContext = vm;
         }
+
+        /**
+         * 
+         * think we should use the command handler and not the Routed Event Args shit
+         * 
+         *
+         */
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
             vm.SaveSettings();
