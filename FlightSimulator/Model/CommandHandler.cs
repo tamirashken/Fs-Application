@@ -28,7 +28,8 @@ namespace FlightSimulator.Model
         }     
 
         private ICommand _clearCommand;
-        public ICommand ConncetCommand
+        //a property
+        public ICommand ClearCommand
         {
             get
             {

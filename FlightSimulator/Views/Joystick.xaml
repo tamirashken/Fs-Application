@@ -254,18 +254,6 @@
                             <Setter Property="Background" Value="LightPink"/>
                         </Style>
                     </TextBox.Style>
-                    <!-- <TextBox.Style>
-                        <Style TargetType="{x:Type TextBox}">
-                            <Setter Property="Background" Value="LightPink"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsEmpty"  Value="True">
-                                    <Setter Property="Background" Value="White"/>
-                                </Trigger>
-                               
-                            </Style.Triggers>
-
-                        </Style>
-                    </TextBox.Style> -->
                 </TextBox>
                 
                 
@@ -273,7 +261,7 @@
     Padding="5" Click="btnOk_Click" Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">OK
                     
                 </Button>
-                <Button x:Name="btnClear" Grid.Row="3" HorizontalAlignment="center" VerticalAlignment="Center" Command="{Binding }"
+                <Button x:Name="btnClear" Command="{Binding ClearCommand}" Grid.Row="3" HorizontalAlignment="center" VerticalAlignment="Center" 
     Padding="5" Click="btnClear_Click" Grid.Column="2" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">Clear
                    
                 </Button>
