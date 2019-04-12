@@ -26,8 +26,9 @@ namespace FlightSimulator.Views.Windows
         public Settings()
         {
             InitializeComponent();
-            vm = new SettingsWindowViewModel(new ApplicationSettingsModel());
+            vm = new SettingsWindowViewModel(ApplicationSettingsModel.Instance);
             this.DataContext = vm;
+          
         }
 
         /**
@@ -35,7 +36,7 @@ namespace FlightSimulator.Views.Windows
          * think we should use the command handler and not the Routed Event Args shit
          * 
          *
-         */
+         
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
             vm.SaveSettings();
@@ -50,6 +51,6 @@ namespace FlightSimulator.Views.Windows
             win.Show();
             vm.ReloadSettings();
             this.Close();
-        }
+        }*/
     }
 }

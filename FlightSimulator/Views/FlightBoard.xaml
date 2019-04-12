@@ -16,6 +16,13 @@
                 <Setter Property="Foreground" Value="Black" />
                 <Setter Property="Margin" Value="4" />
             </Style>
+            <!--<LinearGradientBrush x:Key="lightBlueBtnBG">
+                <GradientStop Offset="0" Color="LightCyan" />
+                <GradientStop Offset="0.5" Color="White" />
+                <GradientStop Offset="0.6" Color="White" />
+                <GradientStop Offset="1" Color="LightCyan" />
+            </LinearGradientBrush>-->
+            
             <RotateTransform x:Key="rotate" Angle="90"/>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
@@ -23,10 +30,24 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <!--<Grid Grid.Row="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="27"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btnConnect"  Click="btnConnect_Click" Grid.Column="0" FontWeight="Bold"  Background="{StaticResource lightBlueBtnBG}">Connect
+
+            </Button>
+            <Button x:Name="btnSettings" Click="btnSettings_Click"  Grid.Column="1" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">Settings
+
+            </Button>
+        </Grid>-->
         <TextBlock Style="{StaticResource LabelStyle}" LayoutTransform="{StaticResource rotate}" VerticalAlignment="Center">Lon</TextBlock>
         <d3:ChartPlotter Grid.Row="0" Grid.Column="1" LegendVisible="False" Name="plotter">
         </d3:ChartPlotter>

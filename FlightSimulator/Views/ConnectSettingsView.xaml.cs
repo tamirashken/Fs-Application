@@ -16,31 +16,26 @@ using FlightSimulator.Views.Windows;
 namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for mainwindow.xaml
+    /// Interaction logic for ConnectSettingsView.xaml
     /// </summary>
-    public partial class mainwindow : Window
+    public partial class ConnectSettingsView : Window
     {
-        public mainwindow()
+        public ConnectSettingsView()
         {
             InitializeComponent();
         }
+    }
 
-        private void Joystick_Loaded(object sender, RoutedEventArgs e)
-        {
+    /*private void btnConnect_Click(object sender, RoutedEventArgs e)
+    {
 
-        }
-        private void btnConnect_Click(object sender, RoutedEventArgs e)
-        {
-
-            //connect and do something
-
-        }
-
-        private void btnSettings_Click(object sender, RoutedEventArgs e)
-        {
-            Settings settingWin = new Settings();
-            settingWin.ShowDialog();
-        }
+        //connect and do something
 
     }
+
+    private void btnSettings_Click(object sender, RoutedEventArgs e)
+    {
+        Settings settingWin = new Settings();
+        settingWin.ShowDialog();
+    }*/
 }

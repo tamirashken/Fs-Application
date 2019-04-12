@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator.Views.Windows"
         mc:Ignorable="d"
-        Title="Settings" FontSize="20" Height="300" Width="450" ResizeMode="NoResize">
+        x:Name="SettingsWindow"  Title="Settings" FontSize="20" Height="300" Width="450" ResizeMode="NoResize">
     <Grid TextBlock.FontSize="18" >
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -43,12 +43,13 @@
         <TextBlock Grid.Row="2" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="center">Flight Command Port:</TextBlock>
         <TextBox x:Name="FlightCommandPort" Grid.Row="2" Grid.Column="1" Text="{Binding FlightCommandPort}"  Height="30" VerticalAlignment="Center" />
 
-        <Button x:Name="btnOk" Click="btnOk_Click" Grid.Row="4" HorizontalAlignment="Center"  VerticalAlignment="Center"
+        <Button x:Name="btnOk" Command="{Binding ClickCommand}"  Grid.Row="4" HorizontalAlignment="Center"  VerticalAlignment="Center"
     Padding="5"  Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">OK  
         </Button>
         
-        <Button x:Name="btnCancel" Grid.Row="4" HorizontalAlignment="center" VerticalAlignment="Center"
-    Padding="5" Click="btnCancel_Click" Grid.Column="1" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">Cancel   
+        <Button x:Name="btnCancel" Command="{Binding CancelCommand, Mode=OneWay}" CommandParameter="{Binding ElementName=SettingsWindow}" Grid.Row="4" HorizontalAlignment="center" VerticalAlignment="Center"
+    Padding="5"  Grid.Column="1" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">Cancel   
         </Button>
+        <!--Click="btnOk_Click" Click="btnCancel_Click" -->
     </Grid>
 </Window>

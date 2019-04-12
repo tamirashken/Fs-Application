@@ -113,7 +113,7 @@ namespace FlightSimulator.Views
         public Joystick()
         {
             InitializeComponent();
-
+            //the canvas name of the joystick is Knob
             Knob.MouseLeftButtonDown += Knob_MouseLeftButtonDown;
             Knob.MouseLeftButtonUp += Knob_MouseLeftButtonUp;
             Knob.MouseMove += Knob_MouseMove;
@@ -175,7 +175,7 @@ namespace FlightSimulator.Views
             Released?.Invoke(this);
         }
 
-        //public bool AcceptReturn { get; set; }
+    
         /*public bool IsEmpty
         {
             get

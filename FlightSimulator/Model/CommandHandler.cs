@@ -27,7 +27,7 @@ namespace FlightSimulator.Model
             _action();
         }     
 
-        private ICommand _clearCommand;
+        /*private ICommand _clearCommand;
         //a property
         public ICommand ClearCommand
         {
@@ -38,6 +38,6 @@ namespace FlightSimulator.Model
                     //textbox is clearing itself somehow
                 }));
             }
-        }
+        }*/
     }
 }

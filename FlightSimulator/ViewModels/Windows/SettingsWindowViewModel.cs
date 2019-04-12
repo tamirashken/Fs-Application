@@ -7,7 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-
+using FlightSimulator.Views;
+using FlightSimulator.Views.Windows;
 namespace FlightSimulator.ViewModels.Windows
 {
     public class SettingsWindowViewModel : BaseNotify
@@ -74,6 +75,8 @@ namespace FlightSimulator.ViewModels.Windows
         private void OnClick()
         {
             model.SaveSettings();
+            mainwindow win = (mainwindow)Application.Current.MainWindow;
+            win.Show();
         }
         #endregion
 
@@ -89,6 +92,17 @@ namespace FlightSimulator.ViewModels.Windows
         private void OnCancel()
         {
             model.ReloadSettings();
+            /*if (window!=null)
+            {
+                window.Close();
+            }*/
+            //Settings setwin = (Settings)Application.Current.;
+            //setwin.Close();
+            //mainwindow win = (mainwindow)Application.Current.MainWindow;
+            //win.Close();
+            
+            //vm.ReloadSettings();
+            //this.Close();
         }
         #endregion
         #endregion

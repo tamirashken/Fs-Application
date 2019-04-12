@@ -20,11 +20,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
+            
         </Grid.RowDefinitions>
-        <Grid>
+        <!----><Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="1*"/>
@@ -33,13 +33,14 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="btnConnect" Click="btnConnect_Click" Grid.Column="1" FontWeight="Bold" Height="27" Background="{StaticResource lightBlueBtnBG}">Connect
-                
+
             </Button>
             <Button x:Name="btnSettings" Click="btnSettings_Click"  Grid.Column="3" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">Settings
-                
+
             </Button>
         </Grid>
-        <local:FlightBoard Grid.Row="2"/>
+        <!--><local:ConnectSettingsView Grid.Row="0" Grid.Column="0" />-->
+        <local:FlightBoard Grid.Column="0" Grid.Row="1"/>
         <local:Joystick Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"/>
 
     </Grid>
