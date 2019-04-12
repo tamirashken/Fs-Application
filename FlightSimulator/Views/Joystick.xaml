@@ -225,6 +225,14 @@
         </TabItem>
         <TabItem Header="Auto Pilot" Width="120" FontSize="18" FontWeight="Bold">
             <Grid>
+                <Grid.Resources>
+                    <LinearGradientBrush x:Key="lightBlueBtnBG">
+                        <GradientStop Offset="0" Color="LightCyan" />
+                        <GradientStop Offset="0.5" Color="White" />
+                        <GradientStop Offset="0.6" Color="White" />
+                        <GradientStop Offset="1" Color="LightCyan" />
+                    </LinearGradientBrush>
+                </Grid.Resources>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.05*"/>
                     <ColumnDefinition Width="3*"/>
@@ -237,32 +245,31 @@
                     <RowDefinition Height="0.2*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto"></TextBox>
-                <!--
+                <TextBox x:Name="autoPilotTextBox" TextWrapping="Wrap" AcceptsReturn="True" FontWeight="Medium" 
+                         Padding="4" FontSize="16" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" >
+                    <!-- <TextBox.Style>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Setter Property="Background" Value="LightPink"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsEmpty"  Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                </Trigger>
+                               
+                            </Style.Triggers>
+
+                        </Style>
+                    </TextBox.Style> -->
+                </TextBox>
                 
-                <Button x:Name="btnStart" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center"  VerticalAlignment="Center"
-    Padding="5" Click="btnStart_Click" Width="80" FontWeight="Bold">OK
-                    <Button.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Offset="0" Color="LightCyan" />
-                            <GradientStop Offset="0.5" Color="White" />
-                            <GradientStop Offset="0.6" Color="White" />
-                            <GradientStop Offset="1" Color="LightCyan" />
-                        </LinearGradientBrush>
-                    </Button.Background>
+                
+                <Button x:Name="btnOK" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center"  VerticalAlignment="Center"
+    Padding="5" Click="btnOk_Click" Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">OK
+                    
                 </Button>
-                <Button x:Name="btnCancel" Grid.Row="3" HorizontalAlignment="center" VerticalAlignment="Center"
-    Padding="5" Click="btnCancel_Click" Grid.Column="2" Width="90" FontWeight="Bold">Clear
-                    <Button.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Offset="0" Color="LightCyan" />
-                            <GradientStop Offset="0.5" Color="White" />
-                            <GradientStop Offset="0.6" Color="White" />
-                            <GradientStop Offset="1" Color="LightCyan" />
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>-->
-                <Label Grid.Row="1" Content="the buttons are not done yet"></Label>
+                <Button x:Name="btnClear" Grid.Row="3" HorizontalAlignment="center" VerticalAlignment="Center"
+    Padding="5" Click="btnClear_Click" Grid.Column="2" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">Clear
+                   
+                </Button>
             </Grid>
         </TabItem>
     </TabControl>

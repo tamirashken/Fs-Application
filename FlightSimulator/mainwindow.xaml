@@ -5,9 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-        Title="mainwindow" Width="1369" Height="600">
+        Title="mainwindow" Width="1369" Height="600" ResizeMode="NoResize">
     <Grid>
-
+        <Grid.Resources>
+            <LinearGradientBrush x:Key="lightBlueBtnBG">
+                <GradientStop Offset="0" Color="LightCyan" />
+                <GradientStop Offset="0.5" Color="White" />
+                <GradientStop Offset="0.6" Color="White" />
+                <GradientStop Offset="1" Color="LightCyan" />
+            </LinearGradientBrush>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -25,29 +32,15 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnConnect" Click="btnConnect_Click" Grid.Column="1" FontWeight="Bold" Height="27">Connect
-                <Button.Background>
-                    <LinearGradientBrush>
-                        <GradientStop Offset="0" Color="LightCyan" />
-                        <GradientStop Offset="0.5" Color="White" />
-                        <GradientStop Offset="0.6" Color="White" />
-                        <GradientStop Offset="1" Color="LightCyan" />
-                    </LinearGradientBrush>
-                </Button.Background>
+            <Button x:Name="btnConnect" Click="btnConnect_Click" Grid.Column="1" FontWeight="Bold" Height="27" Background="{StaticResource lightBlueBtnBG}">Connect
+                
             </Button>
-            <Button x:Name="btnSettings" Click="btnSettings_Click"  Grid.Column="3" FontWeight="Bold" >Settings
-                <Button.Background>
-                    <LinearGradientBrush>
-                        <GradientStop Offset="0" Color="LightCyan" />
-                        <GradientStop Offset="0.5" Color="White" />
-                        <GradientStop Offset="0.6" Color="White" />
-                        <GradientStop Offset="1" Color="LightCyan" />
-                    </LinearGradientBrush>
-                </Button.Background>
+            <Button x:Name="btnSettings" Click="btnSettings_Click"  Grid.Column="3" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">Settings
+                
             </Button>
         </Grid>
         <local:FlightBoard Grid.Row="2"/>
-        <local:Joystick Grid.Column="1" Grid.Row="2"/>
+        <local:Joystick Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"/>
 
     </Grid>
 </Window>

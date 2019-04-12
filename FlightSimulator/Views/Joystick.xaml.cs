@@ -108,6 +108,7 @@ namespace FlightSimulator.Views
         private double _prevAileron, _prevElevator;
         private double canvasWidth, canvasHeight;
         private readonly Storyboard centerKnob;
+        
 
         public Joystick()
         {
@@ -172,6 +173,44 @@ namespace FlightSimulator.Views
         {
             Aileron = Elevator = _prevAileron = _prevElevator = 0;
             Released?.Invoke(this);
+        }
+
+        //public bool AcceptReturn { get; set; }
+        public bool IsEmpty
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(this.autoPilotTextBox.Text))
+                {
+                    return true;
+                }
+                return false;
+            }
+            set
+            {
+                if (String.IsNullOrEmpty(this.autoPilotTextBox.Text))
+                {
+                    value = true;
+                }
+                else
+                {
+                    value = false;
+                }
+            }
+        }
+
+        private void btnOk_Click(object sender, RoutedEventArgs e)
+        {
+            this.autoPilotTextBox.Background = Brushes.White;
+            //ok button sends line after line every 2 seconds, 
+            //we dont want to freeze the screen, so i think we should open a new thread that will be resposible on sending commands to the simulator
+
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            this.autoPilotTextBox.Clear();
+            this.autoPilotTextBox.Background = Brushes.White;
         }
 
     }
