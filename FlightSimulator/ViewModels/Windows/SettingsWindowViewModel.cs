@@ -79,7 +79,7 @@ namespace FlightSimulator.ViewModels.Windows
         private void OnOk()
         {
             CloseAction();
-            model.SaveSettings();
+            SaveSettings();
             
         }
         #endregion
@@ -96,7 +96,7 @@ namespace FlightSimulator.ViewModels.Windows
         private void OnCancel()
         {
             CloseAction();
-            model.ReloadSettings();
+            ReloadSettings();
         }
         #endregion
         #endregion
