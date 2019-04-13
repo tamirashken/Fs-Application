@@ -29,9 +29,9 @@ namespace FlightSimulator.Views.Windows
             vm = new SettingsWindowViewModel(ApplicationSettingsModel.Instance);
             this.DataContext = vm;
            if (vm.CloseAction == null)
-            {
+           {
                 vm.CloseAction = new Action(() => this.Close());
-            }
+           }
         }
 
         /**

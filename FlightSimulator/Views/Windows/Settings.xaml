@@ -33,6 +33,7 @@
                 <GradientStop Offset="0.6" Color="White" />
                 <GradientStop Offset="1" Color="LightCyan" />
             </LinearGradientBrush>
+           
         </Grid.Resources>
         <TextBlock FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">Flight Server IP:</TextBlock>
         <TextBox x:Name="FlightServerIP" Grid.Column="1" Text="{Binding FlightServerIP}" Height="30" VerticalAlignment="Center"></TextBox>
@@ -43,14 +44,11 @@
         <TextBlock Grid.Row="2" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="center">Flight Command Port:</TextBlock>
         <TextBox x:Name="FlightCommandPort" Grid.Row="2" Grid.Column="1" Text="{Binding FlightCommandPort}"  Height="30" VerticalAlignment="Center" />
 
-        <Button Command="{Binding ClickCommand}"  Grid.Row="4" HorizontalAlignment="Center"  VerticalAlignment="Center"
-    Padding="5"  Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">OK  
-        </Button>
+        <Button Content="OK" Command="{Binding OkCommand}"  Grid.Row="4" HorizontalAlignment="Center"  VerticalAlignment="Center"
+    Padding="5"  Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>
+
 
         <Button  Content="Cancel" Command="{Binding CancelCommand}"  Grid.Row="4" HorizontalAlignment="center" VerticalAlignment="Center"
-    Padding="5"  Grid.Column="1" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">  
-        </Button>
-        <!--="{Binding ElementName=SettingsWindow}"-->
-        <!--Click="btnOk_Click" Click="btnCancel_Click" -->
+    Padding="5"  Grid.Column="1" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>
     </Grid>
 </Window>

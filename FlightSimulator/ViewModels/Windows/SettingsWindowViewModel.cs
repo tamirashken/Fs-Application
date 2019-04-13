@@ -62,25 +62,25 @@ namespace FlightSimulator.ViewModels.Windows
             model.ReloadSettings();
         }
 
+
         public Action CloseAction { get; set; }
        
 
         #region Commands
         #region ClickCommand
-        private ICommand _clickCommand;
-        public ICommand ClickCommand
+        private ICommand _OkCommand;
+        public ICommand OkCommand
         {
             get
             {
-                return _clickCommand ?? (_clickCommand = new CommandHandler(() => OnClick()));
+                return _OkCommand ?? (_OkCommand = new CommandHandler(() => OnOk()));
             }
         }
-        private void OnClick()
+        private void OnOk()
         {
-            
+            CloseAction();
             model.SaveSettings();
-            mainwindow win = (mainwindow)Application.Current.MainWindow;
-            win.Show();
+            
         }
         #endregion
 
@@ -97,17 +97,6 @@ namespace FlightSimulator.ViewModels.Windows
         {
             CloseAction();
             model.ReloadSettings();
-            /*if (window!=null)
-            {
-                window.Close();
-            }*/
-            //Settings setwin = (Settings)Application.Current.;
-            //setwin.Close();
-            //mainwindow win = (mainwindow)Application.Current.MainWindow;
-            //win.Close();
-            
-            //vm.ReloadSettings();
-            //this.Close();
         }
         #endregion
         #endregion
