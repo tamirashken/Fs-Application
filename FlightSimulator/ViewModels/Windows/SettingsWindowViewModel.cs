@@ -50,7 +50,7 @@ namespace FlightSimulator.ViewModels.Windows
             }
         }
 
-     
+        
 
         public void SaveSettings()
         {
@@ -61,6 +61,9 @@ namespace FlightSimulator.ViewModels.Windows
         {
             model.ReloadSettings();
         }
+
+        public Action CloseAction { get; set; }
+       
 
         #region Commands
         #region ClickCommand
@@ -74,6 +77,7 @@ namespace FlightSimulator.ViewModels.Windows
         }
         private void OnClick()
         {
+            
             model.SaveSettings();
             mainwindow win = (mainwindow)Application.Current.MainWindow;
             win.Show();
@@ -91,6 +95,7 @@ namespace FlightSimulator.ViewModels.Windows
         }
         private void OnCancel()
         {
+            CloseAction();
             model.ReloadSettings();
             /*if (window!=null)
             {
