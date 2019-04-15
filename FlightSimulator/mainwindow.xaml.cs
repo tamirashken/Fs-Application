@@ -23,6 +23,8 @@ namespace FlightSimulator.Views
         public mainwindow()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+
         }
 
         private void Joystick_Loaded(object sender, RoutedEventArgs e)

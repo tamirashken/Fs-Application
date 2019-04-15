@@ -5,26 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-        Title="mainwindow" Width="1369" Height="600" ResizeMode="NoResize">
+        Title="mainwindow" Width="1369" Height="750" ResizeMode="NoResize">
     <Grid>
-        <Grid.Resources>
-            <LinearGradientBrush x:Key="lightBlueBtnBG">
-                <GradientStop Offset="0" Color="LightCyan" />
-                <GradientStop Offset="0.5" Color="White" />
-                <GradientStop Offset="0.6" Color="White" />
-                <GradientStop Offset="1" Color="LightCyan" />
-            </LinearGradientBrush>
-        </Grid.Resources>
+        
+        
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
-            
         </Grid.RowDefinitions>
-        <!----><Grid>
+        <!--<Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="1*"/>
@@ -38,10 +32,11 @@
             <Button x:Name="btnSettings" Click="btnSettings_Click"  Grid.Column="3" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">Settings
 
             </Button>
-        </Grid>
+        </Grid>-->
         <!--><local:ConnectSettingsView Grid.Row="0" Grid.Column="0" />-->
-        <local:FlightBoard Grid.Column="0" Grid.Row="1"/>
-        <local:Joystick Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"/>
+        <TextBlock Grid.ColumnSpan="2" Text="Flight Simulator" FontSize="60" HorizontalAlignment="Center"></TextBlock>
+        <local:FlightBoard Grid.Column="0" Grid.Row="1" Margin="0,20,0,10" VerticalAlignment="Bottom"/>
+        <local:Joystick Grid.Column="1" Grid.Row="1"/>
 
     </Grid>
 </Window>

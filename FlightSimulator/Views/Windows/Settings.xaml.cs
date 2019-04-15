@@ -28,10 +28,11 @@ namespace FlightSimulator.Views.Windows
             InitializeComponent();
             vm = new SettingsWindowViewModel(ApplicationSettingsModel.Instance);
             this.DataContext = vm;
-           if (vm.CloseAction == null)
-           {
+            if (vm.CloseAction == null)
+            {
                 vm.CloseAction = new Action(() => this.Close());
-           }
+            }
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
 
         /**

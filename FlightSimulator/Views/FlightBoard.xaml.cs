@@ -17,6 +17,7 @@ using FlightSimulator.Model;
 using FlightSimulator.ViewModels;
 using Microsoft.Research.DynamicDataDisplay;
 using Microsoft.Research.DynamicDataDisplay.DataSources;
+using FlightSimulator.Views.Windows;
 
 namespace FlightSimulator.Views
 {
@@ -32,6 +33,14 @@ namespace FlightSimulator.Views
             InitializeComponent();
             vm = new FlightBoardViewModel(FlightManagerModel.Instance);
             this.DataContext = vm;
+            if (vm.OpenAction == null)
+            {
+                vm.OpenAction = new Action(() => 
+                {
+                    Settings settingWin = new Settings();
+                    settingWin.ShowDialog();
+                });
+            }
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

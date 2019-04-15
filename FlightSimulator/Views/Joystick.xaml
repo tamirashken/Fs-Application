@@ -5,15 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FlightSimulator.Views"
              mc:Ignorable="d" 
-             Height="500" Width="600">
-    <TabControl>
-        <TabItem Width="100" Height="30" FontWeight="Bold">
+             Height="600" Width="600">
+    <TabControl HorizontalAlignment="Center">
+        <TabItem Width="298" Height="30" FontWeight="Bold">
             <TabItem.Header>
                 <StackPanel>
                     <TextBlock  FontSize="18" >Manual</TextBlock>
                 </StackPanel>
             </TabItem.Header>
-            <DockPanel >
+            <DockPanel Width="600">
 
                 <Grid DockPanel.Dock="Bottom">
                     <Grid.RowDefinitions>
@@ -224,7 +224,7 @@
                 </Grid>
             </DockPanel>
         </TabItem>
-        <TabItem Header="Auto Pilot" Width="120" FontSize="18" FontWeight="Bold">
+        <TabItem Header="Auto Pilot" Width="298" FontSize="18" FontWeight="Bold">
             <Grid>
                 <Grid.Resources>
                     <LinearGradientBrush x:Key="lightBlueBtnBG">
