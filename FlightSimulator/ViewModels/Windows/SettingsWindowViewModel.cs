@@ -53,6 +53,7 @@ namespace FlightSimulator.ViewModels.Windows
 
         public void SaveSettings()
         {
+            //there is no logic here
             model.SaveSettings();
         }
 

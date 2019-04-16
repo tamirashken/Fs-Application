@@ -61,7 +61,10 @@ namespace FlightSimulator.ViewModels
         }
         private void OnConnect()
         {
-           //OpenAction();
+            //get the connection data from somewhere -------- HOW?
+
+            //this.flightManagerModel.connect()
+          
         }
         #endregion
         #endregion
