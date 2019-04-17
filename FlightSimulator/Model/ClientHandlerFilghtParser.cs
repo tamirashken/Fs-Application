@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace FlightSimulator.Model
 {
     class ClientHandlerFilghtParser : ClientHandler
-
     {
         public double handleClient(string data, int index)
         {
@@ -17,8 +16,7 @@ namespace FlightSimulator.Model
                 return Double.Parse(dataArray[index]);
             }
             catch (Exception)
-            {
-             
+            { 
                 return 0;
             }
         }

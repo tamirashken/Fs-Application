@@ -48,12 +48,15 @@ namespace FlightSimulator.ViewModels
         }
         private void OnConnect()
         {
+
             //get the connection data from somewhere -------- HOW?
             string ip = ApplicationSettingsModel.Instance.FlightServerIP;
             int portOfCommand = ApplicationSettingsModel.Instance.FlightCommandPort;
             int portOfStart = ApplicationSettingsModel.Instance.FlightInfoPort;
             this.flightManagerModel.start(ip, portOfStart);
             this.flightManagerModel.connect(ip, portOfCommand);
+
+
         }
         #endregion
         #endregion

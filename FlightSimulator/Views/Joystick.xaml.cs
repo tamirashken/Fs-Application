@@ -14,6 +14,9 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FlightSimulator.ViewModels;
+using FlightSimulator.Model;
+
 
 namespace FlightSimulator.Views
 {
@@ -22,6 +25,7 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class Joystick : UserControl
     {
+        
         /// <summary>Current Aileron</summary>
         public static readonly DependencyProperty AileronProperty =
             DependencyProperty.Register("Aileron", typeof(double), typeof(Joystick),null);
@@ -108,11 +112,15 @@ namespace FlightSimulator.Views
         private double _prevAileron, _prevElevator;
         private double canvasWidth, canvasHeight;
         private readonly Storyboard centerKnob;
-        
 
+
+        JoyStickViewModel joystickVM;
         public Joystick()
         {
             InitializeComponent();
+            joystickVM = new JoyStickViewModel(FlightManagerModel.Instance);
+            DataContext = joystickVM;
+
             //the canvas name of the joystick is Knob
             Knob.MouseLeftButtonDown += Knob_MouseLeftButtonDown;
             Knob.MouseLeftButtonUp += Knob_MouseLeftButtonUp;

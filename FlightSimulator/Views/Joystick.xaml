@@ -10,7 +10,7 @@
         <TabItem Width="298" Height="30" FontWeight="Bold">
             <TabItem.Header>
                 <StackPanel>
-                    <TextBlock  FontSize="18" >Manual</TextBlock>
+                    <TextBlock Text="Manual"  FontSize="18" />
                 </StackPanel>
             </TabItem.Header>
             <DockPanel Width="600">
@@ -28,9 +28,9 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Slider Value="{Binding Path=VM_Throttle}" IsSnapToTickEnabled="True" Grid.Column="1" Grid.ColumnSpan="3" Foreground="Black" DockPanel.Dock="Bottom" Minimum="-1"  Maximum="1" TickFrequency="0.05" TickPlacement="BottomRight" />
+                    <Slider Value="-0.4" IsSnapToTickEnabled="True" Grid.Column="1" Grid.ColumnSpan="3" Foreground="Black" DockPanel.Dock="Bottom" Minimum="-1"  Maximum="1" TickFrequency="0.05" TickPlacement="BottomRight" />
                     <Label Grid.Row="1" Grid.Column="2" FontSize="20"  Content="⬅ Rudder ⮕" HorizontalAlignment="Center" />
-                    <Label Content="{Binding Path=VM_Throttle}" Grid.Row="1" Grid.Column="3" FontSize="20" HorizontalAlignment="Center" />
+                    <Label Content="{Binding Path=VM_Rudder}" Grid.Row="1" Grid.Column="3" FontSize="20" HorizontalAlignment="Center" />
                 </Grid>
 
                 <Grid DockPanel.Dock="Top">
@@ -62,13 +62,13 @@
                             <RotateTransform Angle="-90"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label Content="{Binding Path=VM_Throttle}" VerticalAlignment="Bottom" FontSize="20">
+                    <!--<Label  Content="{Binding Path=VM_Throttle}" VerticalAlignment="Bottom" FontSize="20">Bla
                         <Label.LayoutTransform>
                             <RotateTransform Angle="-90"/>
                         </Label.LayoutTransform>
-                    </Label>
+                    </Label> -->
                     <Slider Grid.Column="1" Grid.RowSpan="3" Orientation="Vertical" Foreground="Gray"  Minimum="0"  Maximum="1" 
-                            Value="{Binding Path=VM_Throttle}" IsSnapToTickEnabled="True" TickFrequency="0.05" TickPlacement="BottomRight" Height="400" VerticalAlignment="Center" />
+                            Value="{Binding Path=VM_Throttle, Mode=TwoWay}" IsSnapToTickEnabled="True" TickFrequency="0.05" TickPlacement="BottomRight" Height="400" VerticalAlignment="Center" />
                 </Grid>
 
                 <Grid DockPanel.Dock="Right">
