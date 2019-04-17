@@ -57,57 +57,64 @@ namespace FlightSimulator.Model
         }
         #endregion
         #region Properties
+        private double lat;
         public double Lat
         {
-            get { return Lat; }
+            get { return lat; }
             set
             {
-                Lat = value;
+                lat = value;
                 NotifyPropertyChanged("Lat");
             }
         }
+        private double lon;
         public double Lon
         {
-            get { return Lon; }
+            get { return lon; }
             set
             {
-                Lat = value;
+                lon = value;
                 NotifyPropertyChanged("Lon");
             }
         }
+        private double throttle;
         public double Throttle
         {
-            get { return Throttle; }
+            get { return throttle; }
             set
             {
-                Lat = value;
+                throttle = value;
                 NotifyPropertyChanged("Throttle");
             }
         }
+        private double elevator;
         public double Elevator
         {
-            get { return Elevator; }
+            get { return elevator; }
             set
             {
-                Lat = value;
+                elevator = value;
                 NotifyPropertyChanged("Elevator");
             }
         }
+        private double aileron;
         public double Aileron
         {
-            get { return Aileron; }
+            get { return aileron; }
             set
             {
-                Lat = value;
+                aileron = value;
                 NotifyPropertyChanged("Aileron");
             }
         }
+
+        private double rudder;
         public double Rudder
         {
-            get { return Rudder; }
+            get { return rudder; }
             set
             {
-                Lat = value;
+                rudder = value;
                 NotifyPropertyChanged("Rudder");
             }
         }
@@ -152,6 +159,7 @@ namespace FlightSimulator.Model
                         Elevator = clientHandler.handleClient(commandLine, Constants.ELEVATOR_INDEX);
                         Aileron = clientHandler.handleClient(commandLine, Constants.AILERON_INDEX);
                         Rudder = clientHandler.handleClient(commandLine, Constants.RUDDER_INDEX);
+                        Thread.Sleep(5000);
                     }
                 }
             });
