@@ -12,17 +12,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using FlightSimulator.Views.Windows;
+using FlightSimulator.ViewModels;
+using FlightSimulator.Model;
 
 namespace FlightSimulator.Views
 {
     /// <summary>
     /// Interaction logic for ConnectSettingsView.xaml
     /// </summary>
-    public partial class ConnectSettingsView : Window
+    public partial class ConnectSettingsView : UserControl
     {
+        ConnectionViewModel vm;
+
         public ConnectSettingsView()
         {
             InitializeComponent();
+            vm = new ConnectionViewModel(FlightManagerModel.Instance);
+            this.DataContext = vm;
+            if (vm.OpenAction == null)
+            {
+                vm.OpenAction = new Action(() =>
+                {
+                    Settings settingWin = new Settings();
+                    settingWin.ShowDialog();
+                });
+            }
         }
     }
 

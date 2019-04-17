@@ -28,9 +28,9 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Slider Grid.Column="1" Grid.ColumnSpan="3" Foreground="Black" DockPanel.Dock="Bottom" Minimum="-1"  Maximum="1" Value="0" TickFrequency="0.1" TickPlacement="BottomRight" />
+                    <Slider Value="{Binding Path=VM_Throttle}" Grid.Column="1" Grid.ColumnSpan="3" Foreground="Black" DockPanel.Dock="Bottom" Minimum="-1"  Maximum="1" TickFrequency="0.1" TickPlacement="BottomRight" />
                     <Label Grid.Row="1" Grid.Column="2" FontSize="20"  Content="⬅ Rudder ⮕" HorizontalAlignment="Center" />
-                    <Label Grid.Row="1" Grid.Column="3" FontSize="20"  Content="0" HorizontalAlignment="Center" />
+                    <Label Content="{Binding Path=VM_Throttle}" Grid.Row="1" Grid.Column="3" FontSize="20" HorizontalAlignment="Center" />
                 </Grid>
 
                 <Grid DockPanel.Dock="Top">
@@ -42,7 +42,8 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Label Content="⬅ Aileron ⮕" Grid.Column="2" HorizontalAlignment="Center" FontSize="20"></Label>
-                    <Label Content="{Binding Path=Aileron, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3"  HorizontalAlignment="Center"  FontSize="20"></Label>
+                    <Label Content="{Binding Path=VM_Aileron}" Grid.Column="3"  HorizontalAlignment="Center"  FontSize="20"/>
+                    <!--UpdateSourceTrigger=PropertyChanged-->
                 </Grid>
 
                 <Grid DockPanel.Dock="Left">
@@ -55,19 +56,19 @@
                         <RowDefinition Height="2*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                    <Label Content="0" VerticalAlignment="Bottom" FontSize="20">
-                        <Label.LayoutTransform>
-                            <RotateTransform Angle="-90"/>
-                        </Label.LayoutTransform>
-                    </Label>
+                    
                     <Label  VerticalAlignment="Center" Grid.Row="1" Content="⬅ Throttle ⮕" FontSize="20">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="-90"/>
                         </Label.LayoutTransform>
                     </Label>
-
-                    <Slider Grid.Column="1" Grid.RowSpan="3" Orientation="Vertical" Foreground="Gray"  Minimum="-1"  Maximum="1" 
-                            Value="0" TickFrequency="0.1" TickPlacement="BottomRight" Height="290" VerticalAlignment="Center" />
+                    <Label Content="{Binding Path=VM_Throttle}" VerticalAlignment="Bottom" FontSize="20">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="-90"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Slider Grid.Column="1" Grid.RowSpan="3" Orientation="Vertical" Foreground="Gray"  Minimum="0"  Maximum="1" 
+                            Value="{Binding Path=VM_Throttle}" TickFrequency="0.1" TickPlacement="BottomRight" Height="400" VerticalAlignment="Center" />
                 </Grid>
 
                 <Grid DockPanel.Dock="Right">
@@ -82,7 +83,7 @@
                             <RotateTransform Angle="90"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label Content="0.0" Grid.Row="0" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="center">
+                    <Label Content="{Binding Path=VM_Elevator}" Grid.Row="0" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="center">
                         <Label.LayoutTransform>
                             <RotateTransform Angle="90"/>
                         </Label.LayoutTransform>

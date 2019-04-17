@@ -31,6 +31,7 @@ namespace FlightSimulator.Views
         {
 
         }
+        /**
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
 
@@ -43,6 +44,7 @@ namespace FlightSimulator.Views
             Settings settingWin = new Settings();
             settingWin.ShowDialog();
         }
+        */
 
     }
 }

@@ -17,6 +17,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <!--<Grid>
             <Grid.ColumnDefinitions>
@@ -34,9 +35,9 @@
             </Button>
         </Grid>-->
         <!--><local:ConnectSettingsView Grid.Row="0" Grid.Column="0" />-->
-        <TextBlock Grid.ColumnSpan="2" Text="Flight Simulator" FontSize="60" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Grid.ColumnSpan="2" Text="Flight Simulator" FontSize="60" HorizontalAlignment="Center"/>
         <local:FlightBoard Grid.Column="0" Grid.Row="1" Margin="0,20,0,10" VerticalAlignment="Bottom"/>
-        <local:Joystick Grid.Column="1" Grid.Row="1"/>
-
+        <local:Joystick Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
+        <local:ConnectSettingsView Grid.Row="2" />
     </Grid>
 </Window>

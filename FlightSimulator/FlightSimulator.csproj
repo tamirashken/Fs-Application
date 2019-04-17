@@ -73,7 +73,9 @@
     <Compile Include="Model\Server.cs" />
     <Compile Include="ViewModels\AutoPilotViewModel.cs" />
     <Compile Include="ViewModels\BaseNotify.cs" />
+    <Compile Include="ViewModels\ConnectionViewModel.cs" />
     <Compile Include="ViewModels\FlightBoardViewModel.cs" />
+    <Compile Include="ViewModels\JoyStickViewModel.cs" />
     <Compile Include="ViewModels\Windows\SettingsWindowViewModel.cs" />
     <Compile Include="Views\ConnectSettingsView.xaml.cs">
       <DependentUpon>ConnectSettingsView.xaml</DependentUpon>
