@@ -63,10 +63,11 @@ namespace FlightSimulator.Model
             get { return lat; }
             set
             {
+                lat = value;
+                NotifyPropertyChanged("Lat");
                 if (lat!= value)
                 {
-                    lat = value;
-                    NotifyPropertyChanged("Lat");
+                    
                 }
                 
                 
@@ -78,10 +79,11 @@ namespace FlightSimulator.Model
             get { return lon; }
             set
             {
+                lon = value;
+                NotifyPropertyChanged("Lon");
                 if (lon != value)
                 {
-                    lon = value;
-                    NotifyPropertyChanged("Lon");
+                    
                 }
                 
             }
@@ -92,10 +94,12 @@ namespace FlightSimulator.Model
             get { return throttle; }
             set
             {
-                if (throttle!=value)
+              
+                throttle = value;
+                NotifyPropertyChanged("Throttle");
+                if (throttle != value)
                 {
-                    throttle = value;
-                    NotifyPropertyChanged("Throttle");
+                    
                 }
                 
             }
@@ -191,9 +195,10 @@ namespace FlightSimulator.Model
             thread.Start();
         }
 
-        public void write()
+        public void write(string command)
         {
 
+            client.write(command);
         }
     }
     

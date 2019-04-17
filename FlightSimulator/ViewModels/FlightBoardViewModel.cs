@@ -20,16 +20,15 @@ namespace FlightSimulator.ViewModels
             flightManagerModel.PropertyChanged +=
                 delegate (object sender, PropertyChangedEventArgs e)
                 {
+                    NotifyPropertyChanged(e.PropertyName);
                     if (e.PropertyName == "Lon")
                     {
-                        //Lon = flightManagerModel.Throttle;
                         Console.WriteLine("Flight board vm " + e.PropertyName);
                     }
 
                     else if (e.PropertyName == "Lat")
                     {
                         Console.WriteLine("Flight board vm " + e.PropertyName);
-                        //Lat = flightManagerModel.Aileron;
 
                     }
                 };
@@ -38,12 +37,12 @@ namespace FlightSimulator.ViewModels
 
         public double Lon
         {
-            get;
+            get { return flightManagerModel.Lon; }
         }
 
         public double Lat
         {
-            get;
+            get { return flightManagerModel.Lat; }
         }
 
     }
