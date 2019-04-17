@@ -40,7 +40,7 @@ namespace FlightSimulator.Model
         {
             this.clientHandler = new ClientHandlerFilghtParser();
             this.shouldStop = true;
-            this.client = new Client();
+            this.client = new Client();  
         }
         private static FlightManagerModel m_Instance = null;
 
@@ -63,7 +63,7 @@ namespace FlightSimulator.Model
             get { return lat; }
             set
             {
-                if (lat!= value)
+                if (lat != value)
                 {
                     lat = value;
                     NotifyPropertyChanged("Lat");
@@ -92,12 +92,12 @@ namespace FlightSimulator.Model
             get { return throttle; }
             set
             {
-                if (throttle!=value)
+                if (throttle != value)
                 {
                     throttle = value;
                     NotifyPropertyChanged("Throttle");
                 }
-                
+               
             }
         }
         private double elevator;
@@ -120,9 +120,9 @@ namespace FlightSimulator.Model
             get { return aileron; }
             set
             {
-                if (throttle != value)
+                if (aileron != value)
                 {
-                    throttle = value;
+                    aileron = value;
                     NotifyPropertyChanged("Aileron");
                 }
                     
@@ -175,16 +175,16 @@ namespace FlightSimulator.Model
                 using (NetworkStream stream = tcpClient.GetStream())
                 using (StreamReader reader = new StreamReader(stream))
                 {
+                    Thread.Sleep(30000);
                     while (shouldStop)
                     {
-                        var commandLine = reader.ReadLine();
-                        Lat = clientHandler.handleClient(commandLine, Constants.LAT_INDEX);
-                        Lon = clientHandler.handleClient(commandLine, Constants.LON_INDEX);
-                        Throttle = clientHandler.handleClient(commandLine, Constants.THROTTLE_INDEX);
-                        Elevator = clientHandler.handleClient(commandLine, Constants.ELEVATOR_INDEX);
-                        Aileron = clientHandler.handleClient(commandLine, Constants.AILERON_INDEX);
-                        Rudder = clientHandler.handleClient(commandLine, Constants.RUDDER_INDEX);
-                        Thread.Sleep(5000);
+                        var data = reader.ReadLine();
+                        Lat = clientHandler.handleClient(data, Constants.LAT_INDEX);
+                        Lon = clientHandler.handleClient(data, Constants.LON_INDEX);
+                        Throttle = clientHandler.handleClient(data, Constants.THROTTLE_INDEX);
+                        Elevator = clientHandler.handleClient(data, Constants.ELEVATOR_INDEX);
+                        Aileron = clientHandler.handleClient(data, Constants.AILERON_INDEX);
+                        Rudder = clientHandler.handleClient(data, Constants.RUDDER_INDEX);
                     }
                 }
             });

@@ -17,9 +17,16 @@ namespace FlightSimulator.ViewModels
             this.flightManagerModel = fmd;
             flightManagerModel.PropertyChanged +=
                 delegate (object sender, PropertyChangedEventArgs e) 
-                { NotifyPropertyChanged("VM_" + e.PropertyName);
+                {
+                    Console.WriteLine("PropertyName: {0}", e.PropertyName);
+                    if (e.PropertyName == "Throttle")
+                    {
+                        VM_Throttle = flightManagerModel.Throttle;
+                    }
+                    NotifyPropertyChanged("VM_" + e.PropertyName);
                 };
         }
+
 
         private double aileron;
         public double VM_Aileron
@@ -47,8 +54,7 @@ namespace FlightSimulator.ViewModels
             set
             {
                 throttle = value;
-                //NotifyPropertyChanged("VM_Throttle");
-                //this.flightManagerModel.write();
+                Console.WriteLine("throttle: {0}", throttle);
             }
 
         }
