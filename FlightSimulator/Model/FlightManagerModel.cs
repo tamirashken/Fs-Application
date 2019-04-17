@@ -63,8 +63,13 @@ namespace FlightSimulator.Model
             get { return lat; }
             set
             {
-                lat = value;
-                NotifyPropertyChanged("Lat");
+                if (lat!= value)
+                {
+                    lat = value;
+                    NotifyPropertyChanged("Lat");
+                }
+                
+                
             }
         }
         private double lon;
@@ -73,8 +78,12 @@ namespace FlightSimulator.Model
             get { return lon; }
             set
             {
-                lon = value;
-                NotifyPropertyChanged("Lon");
+                if (lon != value)
+                {
+                    lon = value;
+                    NotifyPropertyChanged("Lon");
+                }
+                
             }
         }
         private double throttle;
@@ -83,8 +92,12 @@ namespace FlightSimulator.Model
             get { return throttle; }
             set
             {
-                throttle = value;
-                NotifyPropertyChanged("Throttle");
+                if (throttle!=value)
+                {
+                    throttle = value;
+                    NotifyPropertyChanged("Throttle");
+                }
+                
             }
         }
         private double elevator;
@@ -93,8 +106,12 @@ namespace FlightSimulator.Model
             get { return elevator; }
             set
             {
-                elevator = value;
-                NotifyPropertyChanged("Elevator");
+                if (elevator != value)
+                {
+                    elevator = value;
+                    NotifyPropertyChanged("Elevator");
+                }
+                    
             }
         }
         private double aileron;
@@ -103,8 +120,12 @@ namespace FlightSimulator.Model
             get { return aileron; }
             set
             {
-                aileron = value;
-                NotifyPropertyChanged("Aileron");
+                if (throttle != value)
+                {
+                    throttle = value;
+                    NotifyPropertyChanged("Aileron");
+                }
+                    
             }
         }
 
@@ -114,8 +135,12 @@ namespace FlightSimulator.Model
             get { return rudder; }
             set
             {
-                rudder = value;
-                NotifyPropertyChanged("Rudder");
+                if (rudder != value)
+                {
+                    rudder = value;
+                    NotifyPropertyChanged("Rudder");
+                }
+                    
             }
         }
         #endregion

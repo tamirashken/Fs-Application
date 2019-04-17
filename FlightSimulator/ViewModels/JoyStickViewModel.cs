@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,10 @@ namespace FlightSimulator.ViewModels
         public JoyStickViewModel(FlightManagerModel fmd)
         {
             this.flightManagerModel = fmd;
+            flightManagerModel.PropertyChanged +=
+                delegate (object sender, PropertyChangedEventArgs e) 
+                { NotifyPropertyChanged("VM_" + e.PropertyName);
+                };
         }
 
         private double aileron;
@@ -22,15 +27,16 @@ namespace FlightSimulator.ViewModels
             get { return aileron; }
             set
             {
-                VM_Aileron = value;
-                NotifyPropertyChanged("VM_Aileron");
+                aileron = value;
+                //this.flightManagerModel.write();
+                //NotifyPropertyChanged("VM_Aileron");
                 /*if (aileron != value)
                 {
                     aileron = value;
                     
                 }*/
-                
-                //this.flightManagerModel.write();
+
+                //
             }
         }
 
@@ -40,8 +46,8 @@ namespace FlightSimulator.ViewModels
             get { return throttle; }
             set
             {
-                VM_Throttle = value;
-                NotifyPropertyChanged("VM_Throttle");
+                throttle = value;
+                //NotifyPropertyChanged("VM_Throttle");
                 //this.flightManagerModel.write();
             }
 
@@ -53,8 +59,8 @@ namespace FlightSimulator.ViewModels
             get { return rudder; }
             set
             {
-                VM_Rudder = value;
-                NotifyPropertyChanged("VM_Rudder");
+                rudder = value;
+                //NotifyPropertyChanged("VM_Rudder");
                 //this.flightManagerModel.write();
             }
         }
@@ -66,8 +72,8 @@ namespace FlightSimulator.ViewModels
             get { return elevator; }
             set
             {
-                VM_Elevator = value;
-                NotifyPropertyChanged("VM_Elevator");
+                elevator = value;
+                //NotifyPropertyChanged("VM_Elevator");
                 //this.flightManagerModel.write();
             }
         }
