@@ -8,6 +8,6 @@ namespace FlightSimulator.Model
 {
     interface ClientHandler
     {
-        double handleClient(string data, int);
+        double handleClient(string data, int index);
     }
 }
