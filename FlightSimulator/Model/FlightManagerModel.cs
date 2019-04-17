@@ -184,7 +184,7 @@ namespace FlightSimulator.Model
                         Elevator = clientHandler.handleClient(commandLine, Constants.ELEVATOR_INDEX);
                         Aileron = clientHandler.handleClient(commandLine, Constants.AILERON_INDEX);
                         Rudder = clientHandler.handleClient(commandLine, Constants.RUDDER_INDEX);
-                        Thread.Sleep(5000);
+                        Thread.Sleep(1000);
                     }
                 }
             });
