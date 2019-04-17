@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 using FlightSimulator.Views;
 using FlightSimulator.Model;
 using System.Windows.Input;
+using FlightSimulator.ViewModels.Windows;
 
 namespace FlightSimulator.ViewModels
 {
     class ConnectionViewModel
     {
         private FlightManagerModel flightManagerModel;
-
         public ConnectionViewModel(FlightManagerModel fmd)
         {
             this.flightManagerModel = fmd;
         }
 
         public Action OpenAction { get; set; }
-
 
         #region Commands
         #region SettingsCommand
@@ -50,9 +49,11 @@ namespace FlightSimulator.ViewModels
         private void OnConnect()
         {
             //get the connection data from somewhere -------- HOW?
-
-            //this.flightManagerModel.connect()
-
+            string ip = ApplicationSettingsModel.Instance.FlightServerIP;
+            int portOfCommand = ApplicationSettingsModel.Instance.FlightCommandPort;
+            int portOfStart = ApplicationSettingsModel.Instance.FlightInfoPort;
+            this.flightManagerModel.start(ip, portOfStart);
+            this.flightManagerModel.connect(ip, portOfCommand);
         }
         #endregion
         #endregion

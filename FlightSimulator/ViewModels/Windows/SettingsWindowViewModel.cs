@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using FlightSimulator.Views;
-using FlightSimulator.Views.Windows;
+
+
 namespace FlightSimulator.ViewModels.Windows
 {
     public class SettingsWindowViewModel : BaseNotify

@@ -19,7 +19,6 @@ static class Constants
     public const int AILERON_INDEX = 19;
     public const int ELEVATOR_INDEX = 20;
     public const int RUDDER_INDEX = 21;
-
 }
 
 namespace FlightSimulator.Model
@@ -28,16 +27,15 @@ namespace FlightSimulator.Model
     //should be singletone
     public class FlightManagerModel : BaseNotify
     {
-        #region Singleton
         ClientHandler clientHandler;
         TcpListener listener;
         TcpClient tcpClient;
         IPEndPoint iPEndPoin;
         bool shouldStop;
         Client client;
-      
-      
 
+
+        #region Singleton
         private FlightManagerModel()
         {
             this.clientHandler = new ClientHandlerFilghtParser();
@@ -57,7 +55,8 @@ namespace FlightSimulator.Model
                 return m_Instance;
             }
         }
-
+        #endregion
+        #region Properties
         public double Lat
         {
             get { return Lat; }
@@ -112,6 +111,7 @@ namespace FlightSimulator.Model
                 NotifyPropertyChanged("Rudder");
             }
         }
+        #endregion
 
         public void connect(string ip, int port)
         {
@@ -157,8 +157,13 @@ namespace FlightSimulator.Model
             });
             thread.Start();
         }
+
+        public void write()
+        {
+
+        }
     }
-    #endregion
+    
 
 }
 
