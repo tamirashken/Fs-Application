@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace FlightSimulator.Model
 {
-    class ClientHandler
+    interface ClientHandler
     {
+        double handleClient(string data, int);
     }
 }
