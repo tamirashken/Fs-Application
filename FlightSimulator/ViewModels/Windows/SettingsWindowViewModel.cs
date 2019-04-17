@@ -81,16 +81,17 @@ namespace FlightSimulator.ViewModels.Windows
             CloseAction();
             SaveSettings();
             
+            
         }
         #endregion
 
         #region CancelCommand
-        private ICommand _cancelCommand;
+        private ICommand _CancelCommand;
         public ICommand CancelCommand
         {
             get
             {
-                return _cancelCommand ?? (_cancelCommand = new CommandHandler(() => OnCancel()));
+                return _CancelCommand ?? (_CancelCommand = new CommandHandler(() => OnCancel()));
             }
         }
         private void OnCancel()
