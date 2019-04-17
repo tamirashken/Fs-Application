@@ -120,9 +120,9 @@ namespace FlightSimulator.Model
             get { return aileron; }
             set
             {
-                if (throttle != value)
+                if (aileron != value)
                 {
-                    throttle = value;
+                    aileron = value;
                     NotifyPropertyChanged("Aileron");
                 }
                     

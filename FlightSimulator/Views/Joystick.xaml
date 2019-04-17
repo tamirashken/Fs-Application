@@ -10,7 +10,7 @@
         <TabItem Width="298" Height="30" FontWeight="Bold">
             <TabItem.Header>
                 <StackPanel>
-                    <TextBlock  FontSize="18" >Manual</TextBlock>
+                    <TextBlock Text="Manual"  FontSize="18" />
                 </StackPanel>
             </TabItem.Header>
             <DockPanel Width="600">
@@ -28,9 +28,9 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Slider Value="{Binding Path=VM_Throttle}" IsSnapToTickEnabled="True" Grid.Column="1" Grid.ColumnSpan="3" Foreground="Black" DockPanel.Dock="Bottom" Minimum="-1"  Maximum="1" TickFrequency="0.05" TickPlacement="BottomRight" />
+                    <Slider Value="{Binding Path=VM_Rudder}" IsSnapToTickEnabled="True" Grid.Column="1" Grid.ColumnSpan="3" Foreground="Black" DockPanel.Dock="Bottom" Minimum="-1"  Maximum="1" TickFrequency="0.05" TickPlacement="BottomRight" />
                     <Label Grid.Row="1" Grid.Column="2" FontSize="20"  Content="⬅ Rudder ⮕" HorizontalAlignment="Center" />
-                    <Label Content="{Binding Path=VM_Throttle}" Grid.Row="1" Grid.Column="3" FontSize="20" HorizontalAlignment="Center" />
+                    <Label Content="{Binding Path=VM_Rudder}" Grid.Row="1" Grid.Column="3" FontSize="20" HorizontalAlignment="Center" />
                 </Grid>
 
                 <Grid DockPanel.Dock="Top">
