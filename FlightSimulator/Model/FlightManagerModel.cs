@@ -179,6 +179,7 @@ namespace FlightSimulator.Model
                 using (NetworkStream stream = tcpClient.GetStream())
                 using (StreamReader reader = new StreamReader(stream))
                 {
+                    Thread.Sleep(30000);
                     while (shouldStop)
                     {
                         var commandLine = reader.ReadLine();
@@ -188,7 +189,7 @@ namespace FlightSimulator.Model
                         Elevator = clientHandler.handleClient(commandLine, Constants.ELEVATOR_INDEX);
                         Aileron = clientHandler.handleClient(commandLine, Constants.AILERON_INDEX);
                         Rudder = clientHandler.handleClient(commandLine, Constants.RUDDER_INDEX);
-                        Thread.Sleep(1000);
+                        Console.WriteLine("aileron: {0}", aileron);
                     }
                 }
             });
