@@ -77,39 +77,29 @@ namespace FlightSimulator.Model
         public double Lon
         {
             get { return lon; }
-            set
-            {
+            set {
                 lon = value;
                 NotifyPropertyChanged("Lon");
-                if (lon != value)
-                {
-                    
+                if (lon != value) {
                 }
-                
             }
         }
         private double throttle;
         public double Throttle
         {
             get { return throttle; }
-            set
-            {
-              
+            set {
                 throttle = value;
                 NotifyPropertyChanged("Throttle");
-                if (throttle != value)
-                {
-                    
-                }
-                
+                if (throttle != value) {
+                }               
             }
         }
         private double elevator;
         public double Elevator
         {
             get { return elevator; }
-            set
-            {
+            set  {
                 if (elevator != value)
                 {
                     elevator = value;
@@ -182,14 +172,17 @@ namespace FlightSimulator.Model
                     Thread.Sleep(30000);
                     while (shouldStop)
                     {
-                        var commandLine = reader.ReadLine();
+                        string commandLine = reader.ReadLine();
+                        //Console.WriteLine(commandLine);
                         Lat = clientHandler.handleClient(commandLine, Constants.LAT_INDEX);
                         Lon = clientHandler.handleClient(commandLine, Constants.LON_INDEX);
                         Throttle = clientHandler.handleClient(commandLine, Constants.THROTTLE_INDEX);
                         Elevator = clientHandler.handleClient(commandLine, Constants.ELEVATOR_INDEX);
                         Aileron = clientHandler.handleClient(commandLine, Constants.AILERON_INDEX);
                         Rudder = clientHandler.handleClient(commandLine, Constants.RUDDER_INDEX);
-                        Console.WriteLine("aileron: {0}", aileron);
+                        //Console.WriteLine("Aileron: {0}", Aileron);
+                        //Console.WriteLine("elevator: {0}", elevator);
+                        //DO NOT WRITE SLEEP;
                     }
                 }
             });

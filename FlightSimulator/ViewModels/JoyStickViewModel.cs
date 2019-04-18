@@ -19,91 +19,38 @@ namespace FlightSimulator.ViewModels
             flightManagerModel.PropertyChanged +=
                 delegate (object sender, PropertyChangedEventArgs e) 
                 {
-                    Console.WriteLine("viewModel: " + e.PropertyName);
+                    //Console.WriteLine("viewModel: " + e.PropertyName);
                     if (e.PropertyName == "Throttle")
                     {
                         VM_Throttle = flightManagerModel.Throttle;
-                        
                     }
                    
                     else if (e.PropertyName == "Aileron")
                     {
-                      
-                       VM_Aileron = flightManagerModel.Aileron;
-
-                    }
-                    else if (e.PropertyName == "Rudder")
-                    {
-                        
-                        VM_Rudder = flightManagerModel.Rudder;
+                        //Console.WriteLine("viewModel: " + e.PropertyName);
+                        VM_Aileron = flightManagerModel.Aileron;
 
                     }
                     else if (e.PropertyName == "Elevator")
                     {
-                        
                         VM_Elevator = flightManagerModel.Elevator;
                     }
-                    
-                    
-                    //NotifyPropertyChanged("VM_" + e.PropertyName);
+                    else if (e.PropertyName == "Rudder")
+                    {
+                        VM_Rudder = flightManagerModel.Rudder;
+                    }
                 };
         }
 
-        private void setMapOfPaths()
-        {
+        private void setMapOfPaths()        {
             this.varToPath.Add("Throttle", "/controls/engines/current-engine/throttle ");
         }
 
-        private string commandGenerator(string nameOfVar, double value)
-        {
+        private string commandGenerator(string nameOfVar, double value)        {
             string set = "set " + this.varToPath[nameOfVar];
             set += value.ToString("0.##");
             set += "\r\n";
             return set;
-        }
-
-        private double aileron;
-        public double VM_Aileron
-        {
-            get
-            {
-                Console.WriteLine("in vm: " + this.flightManagerModel.Aileron);
-                return this.flightManagerModel.Aileron;
-            }
-            set
-            {
-                Console.WriteLine("set in vm aileron: " + value);
-                aileron = value;
-                //this.flightManagerModel.write();
-
-                if (aileron != value)
-                {
-                    
-                    //NotifyPropertyChanged("VM_Aileron");
-                }
-
-                //
-            }
-        }
-
-        private double elevator;
-        public double VM_Elevator
-        {
-            get
-            {
-                Console.WriteLine("in vm get the elevator: " + this.flightManagerModel.Elevator);
-                return this.flightManagerModel.Elevator; }
-            set
-            {
-                Console.WriteLine("set in vm elevator: " + value);
-                elevator = value;
-                /*if (elevator != value)
-                {
-                    elevator = value;
-                    NotifyPropertyChanged("VM_Elevator");
-                }*/
-                //this.flightManagerModel.write();
-            }
         }
 
         private double throttle;
@@ -112,21 +59,14 @@ namespace FlightSimulator.ViewModels
             get { return (this.flightManagerModel.Throttle); }
             set
             {
-
-                //NotifyPropertyChanged("VM_Throttle");
                 if (throttle != value)
                 {
                     throttle = value;
-                    //this.flightManagerModel.write(commandGenerator("Throttle", value));
-                   
+                    NotifyPropertyChanged("VM_Throttle");
                 }
             }
 
         }
-
-        
-
-        
 
         private double rudder;
         public double VM_Rudder
@@ -137,11 +77,39 @@ namespace FlightSimulator.ViewModels
                 if (rudder != value)
                 {
                     rudder = value;
-                    //NotifyPropertyChanged("VM_Rudder");
+                    NotifyPropertyChanged("VM_Rudder");
                 }
                 //this.flightManagerModel.write();
             }
         }
+
+        private double aileron;
+        public double VM_Aileron {
+            get            {
+                return this.flightManagerModel.Aileron;
+            }
+            set {
+                if (aileron != value) {
+                    aileron = value;
+                    NotifyPropertyChanged("VM_Aileron");
+                }
+            }
+        }
+
+        private double elevator;
+        public double VM_Elevator        {
+            get            {
+                return this.flightManagerModel.Elevator;
+            }
+            set            {
+                if (elevator != value)                { 
+                    elevator = value;
+                    NotifyPropertyChanged("VM_Elevator");
+                }
+            }
+        }
+
+        
 
         
     }
