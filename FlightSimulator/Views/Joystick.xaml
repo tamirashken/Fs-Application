@@ -250,7 +250,7 @@
                     <RowDefinition Height="7*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <TextBox Text="{Binding Path=VM_Text}"  TextWrapping="Wrap" AcceptsReturn="True" FontWeight="Medium" FontSize="16" Grid.Column="1" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" 
+                <TextBox Text="{Binding Path=VM_Text, Mode=TwoWay}"  TextWrapping="Wrap" AcceptsReturn="True" FontWeight="Medium" FontSize="16" Grid.Column="1" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" 
                           Margin="0,5,5,5">
                     <TextBox.Style>
                         <Style TargetType="{x:Type TextBox}">

@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using FlightSimulator.Model;
+using System.Threading;
+
 
 namespace FlightSimulator.ViewModels
 {
@@ -126,7 +128,6 @@ namespace FlightSimulator.ViewModels
             get { return text; }
             set
             {
-                Console.WriteLine("text is: " + value);
                 text = value;
             }
         }
@@ -145,12 +146,18 @@ namespace FlightSimulator.ViewModels
         }
         private void OnOk()
         {
-            //get the text. split it by enters
-            //change the BackGround to White
-            //this.autoPilotTextBox.Background = Brushes.White;
-
-            //ok button sends line after line every 2 seconds, 
-            //we dont want to freeze the screen, so i think we should open a new thread that will be resposible on sending commands to the simulator
+            //splits by enters
+            string[] commandsToSend = VM_Text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+            Thread thread = new Thread(() =>
+            {
+                foreach (string command in commandsToSend)
+                {
+                    string s = command + ("\r\n");
+                    flightManagerModel.write(s);
+                    Thread.Sleep(2000);
+                }
+            });
+            thread.Start();
         }
         #endregion
 
@@ -165,7 +172,7 @@ namespace FlightSimulator.ViewModels
         }
         private void OnClear()
         {
-            
+            //VM_Text = "";
         }
         #endregion
         #endregion

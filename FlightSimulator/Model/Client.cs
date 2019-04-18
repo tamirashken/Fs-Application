@@ -23,7 +23,7 @@ namespace FlightSimulator.Model
         {
             iPEndPoint = new IPEndPoint(IPAddress.Parse(ip), port);
             tcpClient.Connect(iPEndPoint);
-            Console.WriteLine("you are connected");
+            //Console.WriteLine("you are connected");
             return true;
         }
 
