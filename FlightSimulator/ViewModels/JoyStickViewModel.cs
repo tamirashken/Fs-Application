@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using FlightSimulator.Model;
 
 namespace FlightSimulator.ViewModels
@@ -22,7 +23,7 @@ namespace FlightSimulator.ViewModels
                     //Console.WriteLine("viewModel: " + e.PropertyName);
                     if (e.PropertyName == "Throttle")
                     {
-                        VM_Throttle = flightManagerModel.Throttle;
+                        //VM_Throttle = flightManagerModel.Throttle;
                     }
                    
                     else if (e.PropertyName == "Aileron")
@@ -37,13 +38,14 @@ namespace FlightSimulator.ViewModels
                     }
                     else if (e.PropertyName == "Rudder")
                     {
-                        VM_Rudder = flightManagerModel.Rudder;
+                       //VM_Rudder = flightManagerModel.Rudder;
                     }
                 };
         }
 
         private void setMapOfPaths()        {
             this.varToPath.Add("Throttle", "/controls/engines/current-engine/throttle ");
+            this.varToPath.Add("Rudder", "/controls/flight/rudder ");
         }
 
         private string commandGenerator(string nameOfVar, double value)        {
@@ -53,17 +55,22 @@ namespace FlightSimulator.ViewModels
             return set;
         }
 
+        #region Properties
         private double throttle;
         public double VM_Throttle
         {
-            get { return (this.flightManagerModel.Throttle); }
+            //get { return (this.flightManagerModel.Throttle); }
             set
             {
-                if (throttle != value)
+                /*if (throttle != value)
                 {
                     throttle = value;
                     NotifyPropertyChanged("VM_Throttle");
-                }
+                    Console.WriteLine("in set throttle");
+                }*/
+                throttle = value;
+                this.flightManagerModel.write(commandGenerator("Throttle",throttle));
+
             }
 
         }
@@ -71,14 +78,17 @@ namespace FlightSimulator.ViewModels
         private double rudder;
         public double VM_Rudder
         {
-            get { return this.flightManagerModel.Rudder; }
+            //get { return this.flightManagerModel.Rudder; }
             set
             {
-                if (rudder != value)
+                /*if (rudder != value)
                 {
-                    rudder = value;
+                    
                     NotifyPropertyChanged("VM_Rudder");
-                }
+                }*/
+
+                rudder = value;
+                this.flightManagerModel.write(commandGenerator("Rudder", rudder));
                 //this.flightManagerModel.write();
             }
         }
@@ -108,9 +118,57 @@ namespace FlightSimulator.ViewModels
                 }
             }
         }
+        #endregion
 
-        
+        private string text;
+        public string VM_Text
+        {
+            get { return text; }
+            set
+            {
+                Console.WriteLine("text is: " + value);
+                text = value;
+            }
+        }
 
-        
+
+
+        #region Commands
+        #region ClickCommand
+        private ICommand _OkCommand;
+        public ICommand OKCommand
+        {
+            get
+            {
+                return _OkCommand ?? (_OkCommand = new CommandHandler(() => OnOk()));
+            }
+        }
+        private void OnOk()
+        {
+            //get the text. split it by enters
+            //change the BackGround to White
+            //this.autoPilotTextBox.Background = Brushes.White;
+
+            //ok button sends line after line every 2 seconds, 
+            //we dont want to freeze the screen, so i think we should open a new thread that will be resposible on sending commands to the simulator
+        }
+        #endregion
+
+        #region ClearCommand
+        private ICommand _ClearCommand;
+        public ICommand ClearCommand
+        {
+            get
+            {
+                return _ClearCommand ?? (_ClearCommand = new CommandHandler(() => OnClear()));
+            }
+        }
+        private void OnClear()
+        {
+            
+        }
+        #endregion
+        #endregion
     }
 }
+

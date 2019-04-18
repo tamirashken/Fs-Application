@@ -19,11 +19,12 @@ namespace FlightSimulator.Model
             this.tcpClient = new TcpClient();
         }
 
-        public void connect(string ip, int port)
+        public bool connect(string ip, int port)
         {
             iPEndPoint = new IPEndPoint(IPAddress.Parse(ip), port);
             tcpClient.Connect(iPEndPoint);
             Console.WriteLine("you are connected");
+            return true;
         }
 
         public void write(string command)

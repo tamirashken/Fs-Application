@@ -207,7 +207,7 @@ namespace FlightSimulator.Views
             }
         }*/
 
-        private void btnOk_Click(object sender, RoutedEventArgs e)
+        /*private void btnOk_Click(object sender, RoutedEventArgs e)
         {
             this.autoPilotTextBox.Background = Brushes.White;
             //ok button sends line after line every 2 seconds, 
@@ -219,7 +219,7 @@ namespace FlightSimulator.Views
         {
             this.autoPilotTextBox.Clear();
             //this.autoPilotTextBox.Background = Brushes.White;
-        }
+        }*/
 
     }
 }

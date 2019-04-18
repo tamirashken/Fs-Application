@@ -21,16 +21,6 @@ namespace FlightSimulator.ViewModels
                 delegate (object sender, PropertyChangedEventArgs e)
                 {
                     NotifyPropertyChanged(e.PropertyName);
-                    if (e.PropertyName == "Lon")
-                    {
-                       // Console.WriteLine("Flight board vm " + e.PropertyName);
-                    }
-
-                    else if (e.PropertyName == "Lat")
-                    {
-                       // Console.WriteLine("Flight board vm " + e.PropertyName);
-
-                    }
                 };
 
         }

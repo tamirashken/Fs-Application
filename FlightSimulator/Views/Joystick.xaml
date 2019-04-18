@@ -19,7 +19,7 @@
                     <TextBlock Text="Manual"  FontSize="18" />
                 </StackPanel>
             </TabItem.Header>
-            <DockPanel Width="600">
+            <DockPanel >
                 <Grid DockPanel.Dock="Bottom">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="2*"/>
@@ -33,10 +33,10 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Slider Value="{Binding Path=VM_Rudder}" IsSnapToTickEnabled="True" Grid.Column="1" Grid.ColumnSpan="3" Foreground="Black" DockPanel.Dock="Bottom" Minimum="-1"  Maximum="1" TickFrequency="0.05" TickPlacement="BottomRight" />
+                    <Slider Name="RudderSlider" Value="{Binding Path=VM_Rudder}" IsSnapToTickEnabled="True" Grid.Column="1" Grid.ColumnSpan="3" Foreground="Black" DockPanel.Dock="Bottom" Minimum="-1"  Maximum="1" TickFrequency="0.05" TickPlacement="BottomRight" />
                     <Label Grid.Row="1" Grid.Column="2" FontSize="20"  Content="⬅ Rudder ⮕" HorizontalAlignment="Center" />
-                    <Label Content="{Binding Path=VM_Rudder}" Grid.Row="1" Grid.Column="3" FontSize="20" HorizontalAlignment="Left" />
-                </Grid>
+                    <TextBlock Text="{Binding ElementName=RudderSlider ,Path=Value, StringFormat=N2}" Grid.Row="1" Grid.Column="3" FontSize="20" HorizontalAlignment="Left" />
+                </Grid> 
 
                 <Grid DockPanel.Dock="Top">
                     <Grid.ColumnDefinitions>
@@ -67,13 +67,13 @@
                             <RotateTransform Angle="-90"/>
                         </Label.LayoutTransform>
                     </Label>
-                    <Label  Content="{Binding Path=VM_Throttle}" VerticalAlignment="Bottom" FontSize="20">
-                        <Label.LayoutTransform>
+                    <TextBlock  Text="{Binding ElementName=ThrottleSlider ,Path=Value, StringFormat=N2}" VerticalAlignment="Bottom" FontSize="20">
+                        <TextBlock.LayoutTransform>
                             <RotateTransform Angle="-90"/>
-                        </Label.LayoutTransform>
-                    </Label>
-                    <Slider Grid.Column="1" Grid.RowSpan="3" Orientation="Vertical" Foreground="Gray"  Minimum="0"  Maximum="1" 
-                            Value="{Binding Path=VM_Throttle}" IsSnapToTickEnabled="True" TickFrequency="0.05" TickPlacement="BottomRight" Height="400" VerticalAlignment="Center" />
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
+                    <Slider Name="ThrottleSlider" Grid.Column="1" Grid.RowSpan="3" Orientation="Vertical" Foreground="Gray"  Minimum="0"  Maximum="1" 
+                            Value="{Binding Path=VM_Throttle, Mode=TwoWay}" IsSnapToTickEnabled="True" TickFrequency="0.05" TickPlacement="BottomRight" Height="400" VerticalAlignment="Center" />
                 </Grid>
 
                 <Grid DockPanel.Dock="Right">
@@ -231,10 +231,6 @@
             </DockPanel>
         </TabItem>
         <TabItem Header="Auto Pilot" Width="298" FontSize="18" FontWeight="Bold">
-            <TabItem.Resources>
-
-
-            </TabItem.Resources>
             <Grid>
                 <Grid.Resources>
                     <LinearGradientBrush x:Key="lightBlueBtnBG">
@@ -251,21 +247,19 @@
                     <ColumnDefinition Width="0.05*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.07*"/>
                     <RowDefinition Height="7*"/>
-                    <RowDefinition Height="0.2*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="autoPilotTextBox" TextWrapping="Wrap" AcceptsReturn="True" FontWeight="Medium" FontSize="16" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" 
-                         Text="{Binding Path=TextToSend}">
+                <TextBox Text="{Binding Path=VM_Text}"  TextWrapping="Wrap" AcceptsReturn="True" FontWeight="Medium" FontSize="16" Grid.Column="1" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" 
+                          Margin="0,5,5,5">
                     <TextBox.Style>
                         <Style TargetType="{x:Type TextBox}">
                             <Setter Property="Background" Value="LightPink"/>
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                <Button  Content="OK" Margin="15"  Grid.Column="1" Grid.Row="3" Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>
-                <Button Content="Clear" Margin="15" Grid.Row="3" Grid.Column="2" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>
+                <Button  Content="OK" Command="{Binding OKCommand}" Margin="15"  Grid.Column="1" Grid.Row="1" Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>
+                <Button Content="Clear" Command="{Binding ClearCommand}" Margin="15" Grid.Row="1" Grid.Column="2" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>
             </Grid>
         </TabItem>
     </TabControl>

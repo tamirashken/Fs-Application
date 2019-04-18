@@ -79,6 +79,7 @@ namespace FlightSimulator.ViewModels.Windows
         }
         private void OnOk()
         {
+
             CloseAction();
             SaveSettings();
             

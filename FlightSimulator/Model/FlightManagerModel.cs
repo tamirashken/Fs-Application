@@ -33,6 +33,7 @@ namespace FlightSimulator.Model
         IPEndPoint iPEndPoin;
         bool shouldStop;
         Client client;
+        bool isConnectedToCommand;
 
 
         #region Singleton
@@ -41,6 +42,7 @@ namespace FlightSimulator.Model
             this.clientHandler = new ClientHandlerFilghtParser();
             this.shouldStop = true;
             this.client = new Client();
+            this.isConnectedToCommand = false;
         }
         private static FlightManagerModel m_Instance = null;
 
@@ -61,16 +63,11 @@ namespace FlightSimulator.Model
         public double Lat
         {
             get { return lat; }
-            set
-            {
-                lat = value;
-                NotifyPropertyChanged("Lat");
-                if (lat!= value)
-                {
-                    
-                }
-                
-                
+            set            {
+                if (lat!= value)                {
+                    lat = value;
+                    NotifyPropertyChanged("Lat");
+                }             
             }
         }
         private double lon;
@@ -78,13 +75,14 @@ namespace FlightSimulator.Model
         {
             get { return lon; }
             set {
-                lon = value;
-                NotifyPropertyChanged("Lon");
+                
                 if (lon != value) {
+                    lon = value;
+                    NotifyPropertyChanged("Lon");
                 }
             }
         }
-        private double throttle;
+        /*private double throttle;
         public double Throttle
         {
             get { return throttle; }
@@ -94,7 +92,7 @@ namespace FlightSimulator.Model
                 if (throttle != value) {
                 }               
             }
-        }
+        }*/
         private double elevator;
         public double Elevator
         {
@@ -123,7 +121,7 @@ namespace FlightSimulator.Model
             }
         }
 
-        private double rudder;
+        /*private double rudder;
         public double Rudder
         {
             get { return rudder; }
@@ -136,12 +134,12 @@ namespace FlightSimulator.Model
                 }
                     
             }
-        }
+        }*/
         #endregion
 
         public void connect(string ip, int port)
         {
-            client.connect(ip, port);
+            isConnectedToCommand = client.connect(ip, port); ;
         }
 
         public void disconnectClient()
@@ -176,12 +174,11 @@ namespace FlightSimulator.Model
                         //Console.WriteLine(commandLine);
                         Lat = clientHandler.handleClient(commandLine, Constants.LAT_INDEX);
                         Lon = clientHandler.handleClient(commandLine, Constants.LON_INDEX);
-                        Throttle = clientHandler.handleClient(commandLine, Constants.THROTTLE_INDEX);
+                        //Throttle = clientHandler.handleClient(commandLine, Constants.THROTTLE_INDEX);
                         Elevator = clientHandler.handleClient(commandLine, Constants.ELEVATOR_INDEX);
                         Aileron = clientHandler.handleClient(commandLine, Constants.AILERON_INDEX);
-                        Rudder = clientHandler.handleClient(commandLine, Constants.RUDDER_INDEX);
+                        //Rudder = clientHandler.handleClient(commandLine, Constants.RUDDER_INDEX);
                         //Console.WriteLine("Aileron: {0}", Aileron);
-                        //Console.WriteLine("elevator: {0}", elevator);
                         //DO NOT WRITE SLEEP;
                     }
                 }
@@ -191,8 +188,11 @@ namespace FlightSimulator.Model
 
         public void write(string command)
         {
-
-            client.write(command);
+            if (isConnectedToCommand)
+            {
+                client.write(command);
+            }
+            
         }
     }
     
