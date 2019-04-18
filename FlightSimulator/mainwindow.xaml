@@ -5,23 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-        Title="mainwindow" Width="1369" Height="750" ResizeMode="NoResize">
+        Title="Flight Simulator by MR and TA" Width="1369" Height="750" ResizeMode="NoResize">
+        <!--  -->
+
     <Grid>
-        
-        
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.ColumnSpan="2" Text="Flight Simulator" FontSize="60" HorizontalAlignment="Center"/>
         <local:FlightBoard Grid.Column="0" Grid.Row="1" Margin="0,20,0,10" VerticalAlignment="Bottom"/>
         <local:Joystick Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
-        <local:ConnectSettingsView Grid.Row="2" />
+        <local:ConnectSettingsView Grid.Row="2" Margin="0,0,0,20"/>
     </Grid>
 </Window>
