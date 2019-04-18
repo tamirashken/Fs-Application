@@ -57,6 +57,28 @@ namespace FlightSimulator.Model
         }
         #endregion
         #region Properties
+
+        private double aileron;
+        public double Aileron
+        {
+            get
+            {
+                Console.WriteLine("in aileron Model= " + aileron);
+                return aileron;
+            }
+            set
+            {
+                aileron = value;
+                NotifyPropertyChanged("Aileron");
+                if (aileron != value)
+                {
+                    
+                }
+
+            }
+        }
+
+
         private double lat;
         public double Lat
         {
@@ -118,20 +140,7 @@ namespace FlightSimulator.Model
                     
             }
         }
-        private double aileron;
-        public double Aileron
-        {
-            get { return aileron; }
-            set
-            {
-                if (aileron != value)
-                {
-                    aileron = value;
-                    NotifyPropertyChanged("Aileron");
-                }
-                    
-            }
-        }
+        
 
         private double rudder;
         public double Rudder
@@ -181,13 +190,21 @@ namespace FlightSimulator.Model
                 {
                     while (shouldStop)
                     {
-                        var commandLine = reader.ReadLine();
+                        string commandLine = reader.ReadLine();
+                        Console.WriteLine(commandLine);
                         Lat = clientHandler.handleClient(commandLine, Constants.LAT_INDEX);
                         Lon = clientHandler.handleClient(commandLine, Constants.LON_INDEX);
-                        Throttle = clientHandler.handleClient(commandLine, Constants.THROTTLE_INDEX);
-                        Elevator = clientHandler.handleClient(commandLine, Constants.ELEVATOR_INDEX);
-                        Aileron = clientHandler.handleClient(commandLine, Constants.AILERON_INDEX);
+                        double t = clientHandler.handleClient(commandLine, Constants.THROTTLE_INDEX);
+                        Console.WriteLine("throttle= " + t);
+                        Throttle = t;
+                        double e = clientHandler.handleClient(commandLine, Constants.ELEVATOR_INDEX);
+                        Console.WriteLine("Elevator= " + e);
+                        Elevator = e;
+                        double a = clientHandler.handleClient(commandLine, Constants.AILERON_INDEX);
+                        Console.WriteLine("Aileron= " + a.ToString());
+                        Aileron = a;
                         Rudder = clientHandler.handleClient(commandLine, Constants.RUDDER_INDEX);
+
                         Thread.Sleep(1000);
                     }
                 }

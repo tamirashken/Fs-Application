@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-             d:DesignHeight="60" d:DesignWidth="400">
-        <!--="ConnectSettingsView" Height="70" FontSize="20"-->
+             >
+    <!--="ConnectSettingsView" Height="70" d:DesignHeight="auto" d:DesignWidth="400" FontSize="20"-->
     <Grid >
         <Grid.Resources>
             <LinearGradientBrush x:Key="lightBlueBtnBG">

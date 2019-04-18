@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:FlightSimulator.Views"
              mc:Ignorable="d" 
              Height="600" Width="600">
-    <TabControl HorizontalAlignment="Center">
+    <TabControl  HorizontalAlignment="Center">
         <TabItem Width="298" Height="30" FontWeight="Bold">
             <TabItem.Header>
                 <StackPanel>

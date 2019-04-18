@@ -19,33 +19,31 @@ namespace FlightSimulator.ViewModels
             flightManagerModel.PropertyChanged +=
                 delegate (object sender, PropertyChangedEventArgs e) 
                 {
+                    Console.WriteLine("viewModel: " + e.PropertyName);
                     if (e.PropertyName == "Throttle")
                     {
                         VM_Throttle = flightManagerModel.Throttle;
-                        Console.WriteLine("throttleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+                        
                     }
                    
                     else if (e.PropertyName == "Aileron")
                     {
-                       Console.WriteLine(e.PropertyName);
+                      
                        VM_Aileron = flightManagerModel.Aileron;
 
                     }
                     else if (e.PropertyName == "Rudder")
                     {
-                        Console.WriteLine(e.PropertyName);
+                        
                         VM_Rudder = flightManagerModel.Rudder;
 
                     }
                     else if (e.PropertyName == "Elevator")
                     {
-                        Console.WriteLine(e.PropertyName);
+                        
                         VM_Elevator = flightManagerModel.Elevator;
                     }
-                    else
-                    {
-                        Console.WriteLine("else " + e.PropertyName);
-                    }
+                    
                     
                     //NotifyPropertyChanged("VM_" + e.PropertyName);
                 };
@@ -62,6 +60,50 @@ namespace FlightSimulator.ViewModels
             set += value.ToString("0.##");
             set += "\r\n";
             return set;
+        }
+
+        private double aileron;
+        public double VM_Aileron
+        {
+            get
+            {
+                Console.WriteLine("in vm: " + this.flightManagerModel.Aileron);
+                return this.flightManagerModel.Aileron;
+            }
+            set
+            {
+                Console.WriteLine("set in vm aileron: " + value);
+                aileron = value;
+                //this.flightManagerModel.write();
+
+                if (aileron != value)
+                {
+                    
+                    //NotifyPropertyChanged("VM_Aileron");
+                }
+
+                //
+            }
+        }
+
+        private double elevator;
+        public double VM_Elevator
+        {
+            get
+            {
+                Console.WriteLine("in vm get the elevator: " + this.flightManagerModel.Elevator);
+                return this.flightManagerModel.Elevator; }
+            set
+            {
+                Console.WriteLine("set in vm elevator: " + value);
+                elevator = value;
+                /*if (elevator != value)
+                {
+                    elevator = value;
+                    NotifyPropertyChanged("VM_Elevator");
+                }*/
+                //this.flightManagerModel.write();
+            }
         }
 
         private double throttle;
@@ -82,23 +124,7 @@ namespace FlightSimulator.ViewModels
 
         }
 
-        private double aileron;
-        public double VM_Aileron
-        {
-            get { return this.flightManagerModel.Aileron; }
-            set
-            {
-                //this.flightManagerModel.write();
-                
-                if (aileron != value)
-                {
-                    aileron = value;
-                    //NotifyPropertyChanged("VM_Aileron");
-                }
-
-                //
-            }
-        }
+        
 
         
 
@@ -117,20 +143,6 @@ namespace FlightSimulator.ViewModels
             }
         }
 
-        private double elevator;
-
-        public double VM_Elevator
-        {
-            get { return this.flightManagerModel.Elevator; }
-            set
-            {
-                if (elevator != value)
-                {
-                    elevator = value;
-                    NotifyPropertyChanged("VM_Elevator");
-                }
-                //this.flightManagerModel.write();
-            }
-        }
+        
     }
 }
