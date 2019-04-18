@@ -7,6 +7,12 @@
              mc:Ignorable="d" 
              Height="600" Width="600">
     <TabControl  HorizontalAlignment="Center">
+        <TabControl.Resources>
+            <Style TargetType="TabControl">
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+        </TabControl.Resources>
         <TabItem Width="298" Height="30" FontWeight="Bold">
             <TabItem.Header>
                 <StackPanel>
@@ -14,7 +20,6 @@
                 </StackPanel>
             </TabItem.Header>
             <DockPanel Width="600">
-
                 <Grid DockPanel.Dock="Bottom">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="2*"/>
@@ -226,6 +231,12 @@
             </DockPanel>
         </TabItem>
         <TabItem Header="Auto Pilot" Width="298" FontSize="18" FontWeight="Bold">
+            <TabItem.Resources>
+                <Style TargetType="MenuItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                </Style>
+            </TabItem.Resources>
             <Grid>
                 <Grid.Resources>
                     <LinearGradientBrush x:Key="lightBlueBtnBG">
@@ -247,8 +258,7 @@
                     <RowDefinition Height="0.2*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="autoPilotTextBox" TextWrapping="Wrap" AcceptsReturn="True" FontWeight="Medium" 
-                         Padding="4" FontSize="16" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" 
+                <TextBox x:Name="autoPilotTextBox" TextWrapping="Wrap" AcceptsReturn="True" FontWeight="Medium" FontSize="16" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" 
                          Text="{Binding Path=TextToSend}">
                     <TextBox.Style>
                         <Style TargetType="{x:Type TextBox}">
@@ -256,16 +266,8 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                
-                
-                <Button x:Name="btnOK" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center"  VerticalAlignment="Center"
-    Padding="5" Click="btnOk_Click" Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">OK
-                    
-                </Button>
-                <Button x:Name="btnClear" Command="{Binding ClearCommand}" Grid.Row="3" HorizontalAlignment="center" VerticalAlignment="Center" 
-    Padding="5" Click="btnClear_Click" Grid.Column="2" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}">Clear
-                   
-                </Button>
+                <Button  Content="OK" Margin="15"  Grid.Column="1" Grid.Row="3" Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>
+                <Button Content="Clear" Margin="15" Grid.Row="3" Grid.Column="2" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>
             </Grid>
         </TabItem>
     </TabControl>
