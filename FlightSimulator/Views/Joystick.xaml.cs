@@ -44,8 +44,8 @@ namespace FlightSimulator.Views
 
         /* Unstable - needs work */
         ///// <summary>Indicates whether the joystick knob resets its place after being released</summary>
-        //public static readonly DependencyProperty ResetKnobAfterReleaseProperty =
-        //    DependencyProperty.Register(nameof(ResetKnobAfterRelease), typeof(bool), typeof(VirtualJoystick), new PropertyMetadata(true));
+       // public static readonly DependencyProperty ResetKnobAfterReleaseProperty =
+         //   DependencyProperty.Register(nameof(ResetKnobAfterRelease), typeof(bool), typeof(VirtualJoystick), new PropertyMetadata(true));
 
         /// <summary>Current Aileron in degrees from 0 to 360</summary>
         public double Aileron
@@ -84,15 +84,15 @@ namespace FlightSimulator.Views
         }
 
         /// <summary>Indicates whether the joystick knob resets its place after being released</summary>
-        //public bool ResetKnobAfterRelease
-        //{
-        //    get { return Convert.ToBoolean(GetValue(ResetKnobAfterReleaseProperty)); }
-        //    set { SetValue(ResetKnobAfterReleaseProperty, value); }
-        //}
+        public bool ResetKnobAfterRelease
+        {
+            get { return Convert.ToBoolean(GetValue(ResetKnobAfterReleaseProperty)); }
+            set { SetValue(ResetKnobAfterReleaseProperty, value); }
+        }
 
         /// <summary>Delegate holding data for joystick state change</summary>
-        /// <param name="sender">The object that fired the event</param>
-        /// <param name="args">Holds new values for Aileron and Elevator</param>
+         ///<param name="sender">The object that fired the event</param>
+         ///<param name="args">Holds new values for Aileron and Elevator</param>
         public delegate void OnScreenJoystickEventHandler(Joystick sender, VirtualJoystickEventArgs args);
 
         /// <summary>Delegate for joystick events that hold no data</summary>
@@ -184,7 +184,7 @@ namespace FlightSimulator.Views
         }
 
     
-        /*public bool IsEmpty
+       /* public bool IsEmpty
         {
             get
             {
@@ -205,9 +205,9 @@ namespace FlightSimulator.Views
                     value = false;
                 }
             }
-        }*/
+        }
 
-        /*private void btnOk_Click(object sender, RoutedEventArgs e)
+        private void btnOk_Click(object sender, RoutedEventArgs e)
         {
             this.autoPilotTextBox.Background = Brushes.White;
             //ok button sends line after line every 2 seconds, 

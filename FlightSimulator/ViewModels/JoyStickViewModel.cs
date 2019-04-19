@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using FlightSimulator.Model;
 using System.Threading;
-
+using System.Windows.Media;
 
 namespace FlightSimulator.ViewModels
 {
@@ -120,7 +120,6 @@ namespace FlightSimulator.ViewModels
                 }
             }
         }
-        #endregion
 
         private string text;
         public string VM_Text
@@ -129,8 +128,35 @@ namespace FlightSimulator.ViewModels
             set
             {
                 text = value;
+                NotifyPropertyChanged(VM_Text);
+                if (!string.IsNullOrEmpty(text))
+                {
+                    VM_AutoBackground = Brushes.LightPink;
+                }
+                else
+                {
+                    VM_AutoBackground = Brushes.White;
+                }
             }
         }
+
+        private Brush color;
+        public Brush VM_AutoBackground
+        {
+            get { return color; }
+            set
+            {
+                if (color != value)
+                {
+                    color = value;
+                    NotifyPropertyChanged("VM_AutoBackground");
+                }
+            }
+        }
+        
+        #endregion
+
+
 
 
 
@@ -150,6 +176,7 @@ namespace FlightSimulator.ViewModels
             string[] commandsToSend = VM_Text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
             Thread thread = new Thread(() =>
             {
+                VM_AutoBackground = Brushes.White;
                 foreach (string command in commandsToSend)
                 {
                     string s = command + ("\r\n");
@@ -172,7 +199,8 @@ namespace FlightSimulator.ViewModels
         }
         private void OnClear()
         {
-            //VM_Text = "";
+            VM_Text = string.Empty;
+            VM_AutoBackground = Brushes.White;
         }
         #endregion
         #endregion
