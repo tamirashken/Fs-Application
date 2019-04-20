@@ -31,12 +31,12 @@ namespace FlightSimulator.ViewModels
                     else if (e.PropertyName == "Aileron")
                     {
                         //Console.WriteLine("viewModel: " + e.PropertyName);
-                        VM_Aileron = flightManagerModel.Aileron;
+                        //VM_Aileron = flightManagerModel.Aileron;
 
                     }
                     else if (e.PropertyName == "Elevator")
                     {
-                        VM_Elevator = flightManagerModel.Elevator;
+                        //VM_Elevator = flightManagerModel.Elevator;
                     }
                     else if (e.PropertyName == "Rudder")
                     {
@@ -48,6 +48,8 @@ namespace FlightSimulator.ViewModels
         private void setMapOfPaths()        {
             this.varToPath.Add("Throttle", "/controls/engines/current-engine/throttle ");
             this.varToPath.Add("Rudder", "/controls/flight/rudder ");
+            this.varToPath.Add("Elevator", "/controls/flight/elevator ");
+            this.varToPath.Add("Aileron", "/controls/flight/aileron ");
         }
 
         private string commandGenerator(string nameOfVar, double value)        {
@@ -98,11 +100,13 @@ namespace FlightSimulator.ViewModels
         private double aileron;
         public double VM_Aileron {
             get            {
+
                 return this.flightManagerModel.Aileron;
             }
             set {
                 if (aileron != value) {
-                    aileron = value;
+                    aileron = value; 
+                    this.flightManagerModel.write(commandGenerator("Aileron", aileron));
                     NotifyPropertyChanged("VM_Aileron");
                 }
             }
@@ -116,6 +120,7 @@ namespace FlightSimulator.ViewModels
             set            {
                 if (elevator != value)                { 
                     elevator = value;
+                    this.flightManagerModel.write(commandGenerator("Elevator", elevator));
                     NotifyPropertyChanged("VM_Elevator");
                 }
             }

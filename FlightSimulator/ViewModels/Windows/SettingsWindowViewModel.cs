@@ -80,7 +80,7 @@ namespace FlightSimulator.ViewModels.Windows
         private void OnOk()
         {
 
-            CloseAction();
+            //CloseAction();
             SaveSettings();
             
             
@@ -98,7 +98,7 @@ namespace FlightSimulator.ViewModels.Windows
         }
         private void OnCancel()
         {
-            CloseAction();
+            //CloseAction();
             ReloadSettings();
         }
         #endregion
