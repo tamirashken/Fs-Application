@@ -241,27 +241,23 @@
                     </LinearGradientBrush>
                 </Grid.Resources>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="142*"/>
-                    <ColumnDefinition Width="44*"/>
-                    <ColumnDefinition Width="106*"/>
-                    <ColumnDefinition Width="293*"/>
-                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="7*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <TextBox Name="textBlock" Text="{Binding VM_Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" AcceptsReturn="True" FontWeight="Medium" FontSize="16" Grid.Column="1" Grid.ColumnSpan="4" VerticalScrollBarVisibility="Auto" 
-                          Margin="0.2,5,4.8,5" Background="{Binding VM_AutoBackground}">
+                <TextBox Name="textBlock" Text="{Binding VM_Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" AcceptsReturn="True" FontWeight="Medium" FontSize="16" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" 
+                          Margin="0,5,5,5" Background="{Binding VM_AutoBackground}">
                     <!--   <TextBox.Style>
                         <Style TargetType="{x:Type TextBox}">
                             <Setter Property="Background" Value="LightPink"/>
                         </Style>
                     </TextBox.Style> -->
                 </TextBox>
-                <Button  Content="OK" Command="{Binding OKCommand}" Margin="106.2,15,105,15.4"  Grid.Column="1" Grid.Row="1" Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}" Grid.ColumnSpan="3"/>
-                <Button  Content="Clear" Command="{Binding ClearCommand}" Margin="101,15,101.8,15.4" Grid.Row="1" Grid.Column="4" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>
+                <Button  Content="OK" Command="{Binding OKCommand}" Margin="15"   Grid.Row="1" Grid.Column="0" Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}" />
+                <Button  Content="Clear" Command="{Binding ClearCommand}" Margin="15" Grid.Row="1" Grid.Column="1" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>
             </Grid>
         </TabItem>
     </TabControl>

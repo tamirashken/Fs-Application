@@ -84,11 +84,11 @@ namespace FlightSimulator.Views
         }
 
         /// <summary>Indicates whether the joystick knob resets its place after being released</summary>
-        public bool ResetKnobAfterRelease
+        /*public bool ResetKnobAfterRelease
         {
             get { return Convert.ToBoolean(GetValue(ResetKnobAfterReleaseProperty)); }
             set { SetValue(ResetKnobAfterReleaseProperty, value); }
-        }
+        }*/
 
         /// <summary>Delegate holding data for joystick state change</summary>
          ///<param name="sender">The object that fired the event</param>
@@ -168,7 +168,6 @@ namespace FlightSimulator.Views
             Moved?.Invoke(this, new VirtualJoystickEventArgs { Aileron = Aileron, Elevator = Elevator });
             _prevAileron = Aileron;
             _prevElevator = Elevator;
-
         }
 
         private void Knob_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -182,44 +181,5 @@ namespace FlightSimulator.Views
             Aileron = Elevator = _prevAileron = _prevElevator = 0;
             Released?.Invoke(this);
         }
-
-    
-       /* public bool IsEmpty
-        {
-            get
-            {
-                if (String.IsNullOrEmpty(this.autoPilotTextBox.Text))
-                {
-                    return true;
-                }
-                return false;
-            }
-            set
-            {
-                if (String.IsNullOrEmpty(this.autoPilotTextBox.Text))
-                {
-                    value = true;
-                }
-                else
-                {
-                    value = false;
-                }
-            }
-        }
-
-        private void btnOk_Click(object sender, RoutedEventArgs e)
-        {
-            this.autoPilotTextBox.Background = Brushes.White;
-            //ok button sends line after line every 2 seconds, 
-            //we dont want to freeze the screen, so i think we should open a new thread that will be resposible on sending commands to the simulator
-
-        }
-
-        private void btnClear_Click(object sender, RoutedEventArgs e)
-        {
-            this.autoPilotTextBox.Clear();
-            //this.autoPilotTextBox.Background = Brushes.White;
-        }*/
-
     }
 }
