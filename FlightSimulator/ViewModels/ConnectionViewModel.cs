@@ -7,6 +7,7 @@ using FlightSimulator.Views;
 using FlightSimulator.Model;
 using System.Windows.Input;
 using FlightSimulator.ViewModels.Windows;
+using FlightSimulator.Views.Windows;
 
 namespace FlightSimulator.ViewModels
 {
@@ -32,8 +33,8 @@ namespace FlightSimulator.ViewModels
         }
         private void OnSettings()
         {
-            OpenAction();
-
+            Settings settingWin = new Settings();
+            settingWin.ShowDialog();  
         }
         #endregion
 
@@ -48,15 +49,11 @@ namespace FlightSimulator.ViewModels
         }
         private void OnConnect()
         {
-
-            //get the connection data from somewhere -------- HOW?
             string ip = ApplicationSettingsModel.Instance.FlightServerIP;
             int portOfCommand = ApplicationSettingsModel.Instance.FlightCommandPort;
             int portOfStart = ApplicationSettingsModel.Instance.FlightInfoPort;
             this.flightManagerModel.start(ip, portOfStart);
             this.flightManagerModel.connect(ip, portOfCommand);
-
-
         }
         #endregion
         #endregion
