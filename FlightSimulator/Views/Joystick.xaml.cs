@@ -42,9 +42,9 @@ namespace FlightSimulator.Views
         public static readonly DependencyProperty ElevatorStepProperty =
             DependencyProperty.Register("ElevatorStep", typeof(double), typeof(Joystick), new PropertyMetadata(1.0));
 
-        /* Unstable - needs work */
+        /* Unstable - needs work 
         ///// <summary>Indicates whether the joystick knob resets its place after being released</summary>
-        /*public static readonly DependencyProperty ResetKnobAfterReleaseProperty =
+        public static readonly DependencyProperty ResetKnobAfterReleaseProperty =
            DependencyProperty.Register(nameof(ResetKnobAfterRelease), typeof(bool), typeof(VirtualJoystick), new PropertyMetadata(true));
 
 
