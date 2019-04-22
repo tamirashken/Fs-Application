@@ -42,10 +42,10 @@ namespace FlightSimulator.Views
         public static readonly DependencyProperty ElevatorStepProperty =
             DependencyProperty.Register("ElevatorStep", typeof(double), typeof(Joystick), new PropertyMetadata(1.0));
 
-        /* Unstable - needs work 
-        ///// <summary>Indicates whether the joystick knob resets its place after being released</summary>
+        /* Unstable - needs work */
+        // <summary>Indicates whether the joystick knob resets its place after being released</summary>
         public static readonly DependencyProperty ResetKnobAfterReleaseProperty =
-           DependencyProperty.Register(nameof(ResetKnobAfterRelease), typeof(bool), typeof(VirtualJoystick), new PropertyMetadata(true));
+           DependencyProperty.Register(nameof(ResetKnobAfterRelease), typeof(bool), typeof(Joystick), new PropertyMetadata(true));
 
 
         /// <summary>Indicates whether the joystick knob resets its place after being released</summary>
@@ -53,7 +53,7 @@ namespace FlightSimulator.Views
         {
             get { return Convert.ToBoolean(GetValue(ResetKnobAfterReleaseProperty)); }
             set { SetValue(ResetKnobAfterReleaseProperty, value); }
-        }*/
+        }
 
 
         /// <summary>Current Aileron in degrees from 0 to 360</summary>

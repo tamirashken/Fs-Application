@@ -101,24 +101,27 @@ namespace FlightSimulator.ViewModels
         public double VM_Aileron {
             get            {
 
-                return this.flightManagerModel.Aileron;
+                return aileron;
             }
             set {
                 if (aileron != value) {
-                    aileron = value; 
+                    aileron = value;
                     this.flightManagerModel.write(commandGenerator("Aileron", aileron));
                     NotifyPropertyChanged("VM_Aileron");
+                    Console.WriteLine("aileron: {0}", aileron);
                 }
+                
             }
         }
 
         private double elevator;
         public double VM_Elevator        {
             get            {
-                return this.flightManagerModel.Elevator;
+                return elevator;
             }
             set            {
-                if (elevator != value)                { 
+                if (elevator != value)
+                {
                     elevator = value;
                     this.flightManagerModel.write(commandGenerator("Elevator", elevator));
                     NotifyPropertyChanged("VM_Elevator");
