@@ -169,7 +169,8 @@ namespace FlightSimulator.Model
                 using (NetworkStream stream = tcpClient.GetStream())
                 using (StreamReader reader = new StreamReader(stream))
                 {
-                    Thread.Sleep(30000);
+                    //NEED SLEEP HERE?
+                    //Thread.Sleep(30000);
                     while (shouldStop)
                     {
                         try
@@ -185,9 +186,9 @@ namespace FlightSimulator.Model
                             //Console.WriteLine("Aileron: {0}", Aileron);
                             //DO NOT WRITE SLEEP;
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
-                            Console.WriteLine("Connection error: check your filght gear simulator");
+                            Console.WriteLine("Connection error: check Filght Gear connection");
                             stopListening();
                         }
 
@@ -203,7 +204,11 @@ namespace FlightSimulator.Model
             {
                 client.write(command);
             }
-            
+            else
+            {
+                Console.WriteLine("Connection error:  check Filght Gear connection");
+            }
+
         }
     }
     
