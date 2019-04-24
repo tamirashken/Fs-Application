@@ -152,6 +152,8 @@ namespace FlightSimulator.Model
             shouldStop = false;
             tcpClient.Close();
             listener.Stop();
+            disconnectClient();
+            isConnectedToCommand = false;
         }
 
         public void start(string ip, int port)
@@ -170,16 +172,25 @@ namespace FlightSimulator.Model
                     Thread.Sleep(30000);
                     while (shouldStop)
                     {
-                        string commandLine = reader.ReadLine();
-                        //Console.WriteLine(commandLine);
-                        Lat = clientHandler.handleClient(commandLine, Constants.LAT_INDEX);
-                        Lon = clientHandler.handleClient(commandLine, Constants.LON_INDEX);
-                        //Throttle = clientHandler.handleClient(commandLine, Constants.THROTTLE_INDEX);
-                        Elevator = clientHandler.handleClient(commandLine, Constants.ELEVATOR_INDEX);
-                        Aileron = clientHandler.handleClient(commandLine, Constants.AILERON_INDEX);
-                        //Rudder = clientHandler.handleClient(commandLine, Constants.RUDDER_INDEX);
-                        //Console.WriteLine("Aileron: {0}", Aileron);
-                        //DO NOT WRITE SLEEP;
+                        try
+                        {
+                            string commandLine = reader.ReadLine();
+                            //Console.WriteLine(commandLine);
+                            Lat = clientHandler.handleClient(commandLine, Constants.LAT_INDEX);
+                            Lon = clientHandler.handleClient(commandLine, Constants.LON_INDEX);
+                            //Throttle = clientHandler.handleClient(commandLine, Constants.THROTTLE_INDEX);
+                            Elevator = clientHandler.handleClient(commandLine, Constants.ELEVATOR_INDEX);
+                            Aileron = clientHandler.handleClient(commandLine, Constants.AILERON_INDEX);
+                            //Rudder = clientHandler.handleClient(commandLine, Constants.RUDDER_INDEX);
+                            //Console.WriteLine("Aileron: {0}", Aileron);
+                            //DO NOT WRITE SLEEP;
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Connection error: check your filght gear simulator");
+                            stopListening();
+                        }
+
                     }
                 }
             });

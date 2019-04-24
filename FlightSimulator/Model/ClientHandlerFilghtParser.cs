@@ -10,15 +10,9 @@ namespace FlightSimulator.Model
     {
         public double handleClient(string data, int index)
         {
-            try
-            {
+          
                 string[] dataArray = data.Split(',');
                 return Double.Parse(dataArray[index]);
-            }
-            catch (Exception)
-            { 
-                return 0;
-            }
         }
     }
 }
