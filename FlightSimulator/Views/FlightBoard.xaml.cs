@@ -17,7 +17,7 @@ using FlightSimulator.Model;
 using FlightSimulator.ViewModels;
 using Microsoft.Research.DynamicDataDisplay;
 using Microsoft.Research.DynamicDataDisplay.DataSources;
-using FlightSimulator.Views.Windows;
+
 
 namespace FlightSimulator.Views
 {

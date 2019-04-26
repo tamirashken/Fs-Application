@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using FlightSimulator.Views;
 
 
 namespace FlightSimulator.ViewModels.Windows
@@ -80,7 +79,6 @@ namespace FlightSimulator.ViewModels.Windows
         private void OnOk()
         {
 
-            //CloseAction();
             SaveSettings();
             
             
@@ -98,7 +96,6 @@ namespace FlightSimulator.ViewModels.Windows
         }
         private void OnCancel()
         {
-            //CloseAction();
             ReloadSettings();
         }
         #endregion

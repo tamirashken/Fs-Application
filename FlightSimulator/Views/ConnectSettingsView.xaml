@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
              >
-    <!--="ConnectSettingsView" Height="70" d:DesignHeight="auto" d:DesignWidth="400" FontSize="20"-->
-    <Grid >
+        <Grid >
         <Grid.Resources>
             <LinearGradientBrush x:Key="lightBlueBtnBG">
                 <GradientStop Offset="0" Color="LightCyan" />
@@ -27,7 +26,7 @@
         <Button Content="Connect" Command="{Binding ConnectCommand}"  Height="40" FontSize="20" Grid.Column="1" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>
         
         <Button Content="Settings" Command="{Binding SettingsCommand}" Height="40" FontSize="20" Grid.Column="3" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>
-
+            
     </Grid>
 </UserControl>
 

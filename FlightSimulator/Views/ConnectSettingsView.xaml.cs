@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using FlightSimulator.Views.Windows;
 using FlightSimulator.ViewModels;
 using FlightSimulator.Model;
 
@@ -28,28 +27,8 @@ namespace FlightSimulator.Views
         {
             InitializeComponent();
             vm = new ConnectionViewModel(FlightManagerModel.Instance);
-            this.DataContext = vm;
-            if (vm.OpenAction == null)
-            {
-                vm.OpenAction = new Action(() =>
-                {
-                    Settings settingWin = new Settings();
-                    settingWin.ShowDialog();
-                });
-            }
+            this.DataContext = vm;        
         }
     }
 
-    /*private void btnConnect_Click(object sender, RoutedEventArgs e)
-    {
-
-        //connect and do something
-
-    }
-
-    private void btnSettings_Click(object sender, RoutedEventArgs e)
-    {
-        Settings settingWin = new Settings();
-        settingWin.ShowDialog();
-    }*/
 }

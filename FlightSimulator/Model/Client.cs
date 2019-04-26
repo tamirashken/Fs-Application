@@ -18,15 +18,15 @@ namespace FlightSimulator.Model
         {
             this.tcpClient = new TcpClient();
         }
-
+        //connecting as a client
         public bool connect(string ip, int port)
         {
             iPEndPoint = new IPEndPoint(IPAddress.Parse(ip), port);
             tcpClient.Connect(iPEndPoint);
-            //Console.WriteLine("you are connected");
             return true;
         }
 
+        //writing to the flight simulator
         public void write(string command)
         {
             try
@@ -46,7 +46,7 @@ namespace FlightSimulator.Model
                 Console.WriteLine("streamException: {0}", e);
             }
         }
-
+        //close the connection
         public void disconnect()
         {
             tcpClient.GetStream().Close();

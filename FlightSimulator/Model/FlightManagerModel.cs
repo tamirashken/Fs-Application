@@ -59,6 +59,10 @@ namespace FlightSimulator.Model
         }
         #endregion
         #region Properties
+        /**
+         *  all notifies will be sent to the ViewModel beacuase the view model is the observer so it can check which property changed
+         *  and find 
+         */ 
         private double lat;
         public double Lat
         {
@@ -82,17 +86,7 @@ namespace FlightSimulator.Model
                 }
             }
         }
-        /*private double throttle;
-        public double Throttle
-        {
-            get { return throttle; }
-            set {
-                throttle = value;
-                NotifyPropertyChanged("Throttle");
-                if (throttle != value) {
-                }               
-            }
-        }*/
+       
         private double elevator;
         public double Elevator
         {
@@ -121,20 +115,7 @@ namespace FlightSimulator.Model
             }
         }
 
-        /*private double rudder;
-        public double Rudder
-        {
-            get { return rudder; }
-            set
-            {
-                if (rudder != value)
-                {
-                    rudder = value;
-                    NotifyPropertyChanged("Rudder");
-                }
-                    
-            }
-        }*/
+        
         #endregion
 
         public void connect(string ip, int port)
@@ -161,9 +142,10 @@ namespace FlightSimulator.Model
             iPEndPoin = new IPEndPoint(IPAddress.Parse(ip), port);
             listener = new TcpListener(iPEndPoin);
             listener.Start();
-            Console.WriteLine("waiting for connection...");
+            //Console.WriteLine("waiting for connection...");
             tcpClient = listener.AcceptTcpClient();
-            Console.WriteLine("Connected");
+            //Console.WriteLine("Connected");
+            //new thread to get the values of each property needed. uses the client handler.
             Thread thread = new Thread(() =>
             {
                 using (NetworkStream stream = tcpClient.GetStream())
@@ -183,7 +165,6 @@ namespace FlightSimulator.Model
                             Elevator = clientHandler.handleClient(commandLine, Constants.ELEVATOR_INDEX);
                             Aileron = clientHandler.handleClient(commandLine, Constants.AILERON_INDEX);
                             //Rudder = clientHandler.handleClient(commandLine, Constants.RUDDER_INDEX);
-                            //Console.WriteLine("Aileron: {0}", Aileron);
                             //DO NOT WRITE SLEEP;
                         }
                         catch (Exception)
@@ -198,6 +179,7 @@ namespace FlightSimulator.Model
             thread.Start();
         }
 
+        //writing to FS through the client class.
         public void write(string command)
         {
             if (isConnectedToCommand)

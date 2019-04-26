@@ -250,11 +250,6 @@
                 </Grid.RowDefinitions>
                 <TextBox Name="textBlock" Text="{Binding VM_Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" AcceptsReturn="True" FontWeight="Medium" FontSize="16" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" 
                           Margin="0,5,5,5" Background="{Binding VM_AutoBackground}">
-                    <!--   <TextBox.Style>
-                        <Style TargetType="{x:Type TextBox}">
-                            <Setter Property="Background" Value="LightPink"/>
-                        </Style>
-                    </TextBox.Style> -->
                 </TextBox>
                 <Button  Content="OK" Command="{Binding OKCommand}" Margin="15"   Grid.Row="1" Grid.Column="0" Width="80" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}" />
                 <Button  Content="Clear" Command="{Binding ClearCommand}" Margin="15" Grid.Row="1" Grid.Column="1" Width="90" FontWeight="Bold" Background="{StaticResource lightBlueBtnBG}"/>

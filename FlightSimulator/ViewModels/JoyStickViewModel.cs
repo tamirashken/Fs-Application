@@ -93,7 +93,6 @@ namespace FlightSimulator.ViewModels
 
                 rudder = value;
                 this.flightManagerModel.write(commandGenerator("Rudder", rudder));
-                //this.flightManagerModel.write();
             }
         }
 
@@ -108,7 +107,6 @@ namespace FlightSimulator.ViewModels
                     aileron = value;
                     this.flightManagerModel.write(commandGenerator("Aileron", aileron));
                     NotifyPropertyChanged("VM_Aileron");
-                    Console.WriteLine("aileron: {0}", aileron);
                 }
                 
             }

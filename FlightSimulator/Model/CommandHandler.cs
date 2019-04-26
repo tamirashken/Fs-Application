@@ -26,18 +26,5 @@ namespace FlightSimulator.Model
         {
             _action();
         }     
-
-        /*private ICommand _clearCommand;
-        //a property
-        public ICommand ClearCommand
-        {
-            get
-            {
-                return _clearCommand ?? (_clearCommand = new CommandHandler(() =>
-                {
-                    //textbox is clearing itself somehow
-                }));
-            }
-        }*/
     }
 }

@@ -21,7 +21,6 @@ namespace FlightSimulator.ViewModels
             
         }
 
-
         //functions
     }
 }

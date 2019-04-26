@@ -28,33 +28,7 @@ namespace FlightSimulator.Views.Windows
             InitializeComponent();
             vm = new SettingsWindowViewModel(ApplicationSettingsModel.Instance);
             this.DataContext = vm;
-            /*if (vm.CloseAction == null)
-            {
-                vm.CloseAction = new Action(() => this.Close());
-            }*/
-            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
-
-        /**
-         * 
-         * think we should use the command handler and not the Routed Event Args shit
-         * 
-         *
-         
-        private void btnOk_Click(object sender, RoutedEventArgs e)
-        {
-            vm.SaveSettings();
-            mainwindow win = (mainwindow)Application.Current.MainWindow;
-            win.Show();
-            this.Close();
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            mainwindow win = (mainwindow)Application.Current.MainWindow;
-            win.Show();
-            vm.ReloadSettings();
-            this.Close();
-        }*/
     }
 }
