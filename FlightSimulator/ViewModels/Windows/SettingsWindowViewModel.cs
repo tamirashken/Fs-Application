@@ -1,11 +1,6 @@
 ﻿using FlightSimulator.Model;
 using FlightSimulator.Model.Interface;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 
@@ -53,7 +48,7 @@ namespace FlightSimulator.ViewModels.Windows
 
         public void SaveSettings()
         {
-            //there is no logic here
+           
             model.SaveSettings();
         }
 

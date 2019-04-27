@@ -19,6 +19,8 @@ namespace FlightSimulator.ViewModels
         {
             this.setMapOfPaths();
             this.flightManagerModel = fmd;
+            flightManagerModel.PropertyChanged +=
+                delegate (object sender, PropertyChangedEventArgs e) { };
         }
 
         private void setMapOfPaths()        {
@@ -38,11 +40,10 @@ namespace FlightSimulator.ViewModels
         #region Properties
         private double throttle;
         public double VM_Throttle
-        {
-           
+        { 
             set
             {
-              
+           
                 throttle = value;
                 this.flightManagerModel.write(commandGenerator("Throttle",throttle));
 
@@ -53,10 +54,8 @@ namespace FlightSimulator.ViewModels
         private double rudder;
         public double VM_Rudder
         {
-            
             set
             {
-               
                 rudder = value;
                 this.flightManagerModel.write(commandGenerator("Rudder", rudder));
             }
@@ -127,10 +126,6 @@ namespace FlightSimulator.ViewModels
         }
         
         #endregion
-
-
-
-
 
         #region Commands
         #region ClickCommand
