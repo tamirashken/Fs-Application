@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
         Title="Flight Simulator by MR and TA" Width="1369" Height="750" ResizeMode="NoResize">
-        <!--  -->
-
+     
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

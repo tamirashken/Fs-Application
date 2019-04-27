@@ -40,7 +40,7 @@ namespace FlightSimulator.Model
         private FlightManagerModel()
         {
             this.clientHandler = new ClientHandlerFilghtParser();
-            this.shouldStop = true;
+            this.shouldStop = false;
             this.client = new Client();
             this.isConnectedToCommand = false;
         }
@@ -125,16 +125,19 @@ namespace FlightSimulator.Model
 
         public void disconnectClient()
         {
-            client.disconnect();
+            client.disconnect();       
         }
 
         public void stopListening()
         {
-            shouldStop = false;
-            tcpClient.Close();
-            listener.Stop();
-            disconnectClient();
-            isConnectedToCommand = false;
+            if (shouldStop == true)
+            {
+                shouldStop = false;
+                tcpClient.Close();
+                listener.Stop();
+                disconnectClient();
+                isConnectedToCommand = false;
+            }
         }
 
         public void start(string ip, int port)
@@ -144,6 +147,7 @@ namespace FlightSimulator.Model
             listener.Start();
             //Console.WriteLine("waiting for connection...");
             tcpClient = listener.AcceptTcpClient();
+            shouldStop = true;
             //Console.WriteLine("Connected");
             //new thread to get the values of each property needed. uses the client handler.
             Thread thread = new Thread(() =>
@@ -192,8 +196,11 @@ namespace FlightSimulator.Model
             }
 
         }
+         ~FlightManagerModel()
+        {
+            stopListening();
+        }
     }
-    
 
 }
 

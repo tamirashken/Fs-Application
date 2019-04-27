@@ -14,15 +14,18 @@ namespace FlightSimulator.Model
         IPEndPoint iPEndPoint;
         TcpClient tcpClient;
         Stream stm;
+        bool isConnect;
         public Client()
         {
             this.tcpClient = new TcpClient();
+            this.isConnect = false;
         }
         //connecting as a client
         public bool connect(string ip, int port)
         {
             iPEndPoint = new IPEndPoint(IPAddress.Parse(ip), port);
             tcpClient.Connect(iPEndPoint);
+            isConnect = true;
             return true;
         }
 
@@ -49,8 +52,12 @@ namespace FlightSimulator.Model
         //close the connection
         public void disconnect()
         {
-            tcpClient.GetStream().Close();
-            tcpClient.Close();
+            if (isConnect)
+            {
+                tcpClient.GetStream().Close();
+                tcpClient.Close();
+                isConnect = false;
+            }
         }
     }
 }
