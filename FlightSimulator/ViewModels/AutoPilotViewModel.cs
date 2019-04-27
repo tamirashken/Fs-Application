@@ -20,7 +20,5 @@ namespace FlightSimulator.ViewModels
             get;
             
         }
-
-        //functions
     }
 }

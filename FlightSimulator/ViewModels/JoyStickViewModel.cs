@@ -19,30 +19,6 @@ namespace FlightSimulator.ViewModels
         {
             this.setMapOfPaths();
             this.flightManagerModel = fmd;
-            flightManagerModel.PropertyChanged +=
-                delegate (object sender, PropertyChangedEventArgs e) 
-                {
-                    //Console.WriteLine("viewModel: " + e.PropertyName);
-                    if (e.PropertyName == "Throttle")
-                    {
-                        //VM_Throttle = flightManagerModel.Throttle;
-                    }
-                   
-                    else if (e.PropertyName == "Aileron")
-                    {
-                        //Console.WriteLine("viewModel: " + e.PropertyName);
-                        //VM_Aileron = flightManagerModel.Aileron;
-
-                    }
-                    else if (e.PropertyName == "Elevator")
-                    {
-                        //VM_Elevator = flightManagerModel.Elevator;
-                    }
-                    else if (e.PropertyName == "Rudder")
-                    {
-                       //VM_Rudder = flightManagerModel.Rudder;
-                    }
-                };
         }
 
         private void setMapOfPaths()        {
@@ -63,15 +39,10 @@ namespace FlightSimulator.ViewModels
         private double throttle;
         public double VM_Throttle
         {
-            //get { return (this.flightManagerModel.Throttle); }
+           
             set
             {
-                /*if (throttle != value)
-                {
-                    throttle = value;
-                    NotifyPropertyChanged("VM_Throttle");
-                    Console.WriteLine("in set throttle");
-                }*/
+              
                 throttle = value;
                 this.flightManagerModel.write(commandGenerator("Throttle",throttle));
 
@@ -82,15 +53,10 @@ namespace FlightSimulator.ViewModels
         private double rudder;
         public double VM_Rudder
         {
-            //get { return this.flightManagerModel.Rudder; }
+            
             set
             {
-                /*if (rudder != value)
-                {
-                    
-                    NotifyPropertyChanged("VM_Rudder");
-                }*/
-
+               
                 rudder = value;
                 this.flightManagerModel.write(commandGenerator("Rudder", rudder));
             }

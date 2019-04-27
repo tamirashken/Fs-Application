@@ -162,18 +162,11 @@ namespace FlightSimulator.Model
                         try
                         {
                             string commandLine = reader.ReadLine();
-                            //Console.WriteLine(commandLine);
                             Lat = clientHandler.handleClient(commandLine, Constants.LAT_INDEX);
                             Lon = clientHandler.handleClient(commandLine, Constants.LON_INDEX);
-                            //Throttle = clientHandler.handleClient(commandLine, Constants.THROTTLE_INDEX);
-                            Elevator = clientHandler.handleClient(commandLine, Constants.ELEVATOR_INDEX);
-                            Aileron = clientHandler.handleClient(commandLine, Constants.AILERON_INDEX);
-                            //Rudder = clientHandler.handleClient(commandLine, Constants.RUDDER_INDEX);
-                            //DO NOT WRITE SLEEP;
                         }
                         catch (Exception)
                         {
-                            Console.WriteLine("Connection error: check Filght Gear connection");
                             stopListening();
                         }
 
@@ -190,11 +183,6 @@ namespace FlightSimulator.Model
             {
                 client.write(command);
             }
-            else
-            {
-                Console.WriteLine("Connection error:  check Filght Gear connection");
-            }
-
         }
          ~FlightManagerModel()
         {
